@@ -21,6 +21,8 @@ and provide them with basic commands to run to verify normal operation. It is a 
 Longhorn maintainers discover additional SELinux behaviors that are of interest. It is not intended to be a guide to
 SELinux or using SELinux with Kubernetes.
 
+<!-- truncate -->
+
 ## SELinux basics
 
 Security-Enhanced Linux (SELinux) is a security architecture for Linux systems that allows administrators to have more

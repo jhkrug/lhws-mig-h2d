@@ -68,22 +68,34 @@ const config = {
       ({
         docs: {
           sidebarPath: './sidebars.js',
-          // Please change this to your repo.
-          // Remove this to remove the "edit this page" links.
           editUrl:
             'https://github.com/longhorn/website/content/docs',
         },
         blog: {
           showReadingTime: true,
-          // Please change this to your repo.
-          // Remove this to remove the "edit this page" links.
-          editUrl:
-            'https://github.com/longhorn/website/content/blog/',
+          blogSidebarTitle: 'All posts',
+          blogSidebarCount: 'ALL',
+          editUrl: 'https://github.com/longhorn/website/content/blog/',
         },
         theme: {
           customCss: './src/css/custom.css',
         },
       }),
+    ],
+  ],
+
+  plugins: [
+    [
+      '@docusaurus/plugin-content-blog',
+      {
+        id: 'kb',
+        routeBasePath: 'kb',
+        path: './kb',
+        showReadingTime: true,
+        blogSidebarTitle: 'All articles',
+        blogSidebarCount: 'ALL',
+        editUrl: 'https://github.com/longhorn/website/content/kb/',
+      },
     ],
   ],
 
@@ -109,12 +121,12 @@ const config = {
             dropdownActiveClassDisabled: true,
           },
           {
-            href: "blog",
+            href: "/blog",
             label: "Blog",
             position: "left",
           },
           {
-            href: "kb",
+            href: "/kb",
             label: "Knowledge Base",
             position: "left",
           },
