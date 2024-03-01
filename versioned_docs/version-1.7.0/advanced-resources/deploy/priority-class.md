@@ -15,7 +15,7 @@ You need to set Priority Class for both types of components. See more details be
 
 Longhorn creates a Priority Class `longhorn-critical` and sets it as default for its user deployed or system managed components if the following actions are not taken.
 
-1. Set taint Priority Class for system managed components: follow the [Customize default settings](../customizing-default-settings/) to set Priority Class by changing the value for the `priority-class` default setting
+1. Set taint Priority Class for system managed components: follow the [Customize default settings](./customizing-default-settings/) to set Priority Class by changing the value for the `priority-class` default setting
 1. Set taint Priority Class for user deployed components: modify the Helm chart or deployment YAML file depending on how you deploy Longhorn.
 
 > **Warning:** Longhorn will not start if the Priority Class setting is invalid (such as the Priority Class not existing).

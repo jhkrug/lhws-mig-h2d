@@ -11,7 +11,7 @@ Then you have a data corruption situation. This section describes how to address
 
 ## Bad Underlying Disk
 
-To determine if the error is caused because one of the underlying disks went bad, follow [these steps](../corrupted-replica) to identify corrupted replicas.
+To determine if the error is caused because one of the underlying disks went bad, follow [these steps](./corrupted-replica) to identify corrupted replicas.
 
 If most of the replicas on the disk went bad, that means the disk is unreliable now and should be replaced.
 
@@ -35,4 +35,4 @@ To revert to a previous snapshot:
 
 ## Recover from Backup
 
-If all of the methods above failed, use a backup to [recover the volume.](../../../snapshots-and-backups/backup-and-restore/restore-from-a-backup)
+If all of the methods above failed, use a backup to [recover the volume.](../../snapshots-and-backups/backup-and-restore/restore-from-a-backup)

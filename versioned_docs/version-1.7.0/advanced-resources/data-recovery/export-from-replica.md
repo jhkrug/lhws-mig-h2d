@@ -11,9 +11,9 @@ If the whole Kubernetes cluster or Longhorn system goes offline, the following s
 
     Longhorn uses the disks on the node to store the replica data.
     
-    By default, the data is stored at the directory specified by the setting [`Default Data Path`](https://longhorn.io/docs/0.8.1/references/settings/#default-data-path).
+    By default, the data is stored at the directory specified by the setting [`Default Data Path`](https://longhorn.io/docs/0.8.1/references/settings#default-data-path).
     
-    More disks can be added to a node by either using the Longhorn UI or by using [a node label and annotation](../../../nodes-and-volumes/nodes/default-disk-and-node-config/).
+    More disks can be added to a node by either using the Longhorn UI or by using [a node label and annotation](../../nodes-and-volumes/nodes/default-disk-and-node-config/).
 
     You can either keep a copy of the path of those disks, or use the following command to find the disks that have been used by Longhorn. For example:
     

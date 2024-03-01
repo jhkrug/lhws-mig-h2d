@@ -32,7 +32,7 @@ Please ensure your Kubernetes cluster is at least v1.21 before upgrading to Long
 ### Offline Upgrade Required To Fully Prevent Unexpected Replica Expansion
 
 Longhorn v1.6.0 introduces a new mechanism to prevent [unexpected replica
-expansion](../../../../kb/troubleshooting-unexpected-expansion-leads-to-degradation-or-attach-failure). This
+expansion](/kb/troubleshooting-unexpected-expansion-leads-to-degradation-or-attach-failure). This
 mechanism is entirely transparent. However, a volume is only protected if it is running a new version of longhorn-engine
 inside a new version of longhorn-instance-manager and managed by a new version of longhorn-manager. The [live upgrade
 process](../../deploy/upgrade/upgrade-engine#live-upgrade) results in a volume running a new version of longhorn-engine
@@ -64,7 +64,7 @@ For Eviction` and `Block for Eviction If Contains Last Replica` automatically ev
 addition to preventing drain completion until volume data is sufficiently protected. `Block for Eviction` maintains
 maximum data redundancy during maintenance operations, and both new options enable automated cluster upgrades when some
 volumes have only one replica. See the new [Node Drain Policy
-Recommendations](../../maintenance/maintenance/#node-drain-policy-recommendations) section for help deciding which
+Recommendations](../../maintenance#node-drain-policy-recommendations) section for help deciding which
 policy to use.
 
 ### Custom Resource Fields Deprecated
@@ -118,7 +118,7 @@ When upgrading through Helm, a component compatibility check is automatically pe
 If you installed Longhorn using the manifests, engine upgrades are enforced by the Longhorn Manager. Attempts to upgrade Longhorn Manager may cause unsuccessful pod launches and generate corresponding error logs, although it poses no harm. If you encounter such errors, you must revert to the previous Longhorn version and then upgrade the engines that are using the incompatible engine images before the next upgrade.
 
 > **Warning:**
-> Whenever engine upgrade enforcement causes upgrade failure, Longhorn allows you to revert to the previous version because Longhorn Manager will block the entire upgrade. However, Longhorn prohibits downgrading when an upgrade is successful. For more information, see [Upgrade Path Enforcement](../../deploy/upgrade/#upgrade-path-enforcement-and-downgrade-prevention).
+> Whenever engine upgrade enforcement causes upgrade failure, Longhorn allows you to revert to the previous version because Longhorn Manager will block the entire upgrade. However, Longhorn prohibits downgrading when an upgrade is successful. For more information, see [Upgrade Path Enforcement](../../deploy/upgrade#upgrade-path-enforcement-and-downgrade-prevention).
 
 You can determine the versions of engine images that are currently in use with the following script:
 ```bash
@@ -139,7 +139,7 @@ Once you successfully upgrade to version v1.6.0, you will be able to view inform
 
 ### Danger Zone Setting Configuration
 
-Starting with Longhorn v1.6.0, Longhorn allows you to modify the [Danger Zone settings](https://longhorn.io/docs/1.6.0/references/settings/#danger-zone) without the need to wait for all volumes to become detached. Your preferred settings are immediately applied in the following scenarios:
+Starting with Longhorn v1.6.0, Longhorn allows you to modify the [Danger Zone settings](https://longhorn.io/docs/1.6.0/references/settings#danger-zone) without the need to wait for all volumes to become detached. Your preferred settings are immediately applied in the following scenarios:
 
 - No attached volumes: When no volumes are attached before the settings are configured, the setting changes are immediately applied.
 - Engine image upgrade (live upgrade): During a live upgrade, which involves creating a new Instance Manager pod, the setting changes are immediately applied to the new pod.
@@ -148,14 +148,14 @@ Settings are synchronized hourly. When all volumes are detached, the settings in
 
   | Setting | Additional Information| Affected Components |
   | --- | --- | --- |
-  | [Kubernetes Taint Toleration](../../references/settings/#kubernetes-taint-toleration)| [Taints and Tolerations](../../advanced-resources/deploy/taint-toleration/) | System-managed components |
-  | [Priority Class](../../references/settings/#priority-class) | [Priority Class](../../advanced-resources/deploy/priority-class/) | System-managed components |
-  | [System Managed Components Node Selector](../../references/settings/#system-managed-components-node-selector) | [Node Selector](../../advanced-resources/deploy/node-selector/) | System-managed components |
-  | [Storage Network](../../references/settings/#storage-network) | [Storage Network](../../advanced-resources/deploy/storage-network/) | Instance Manager and Backing Image components |
-  | [V1 Data Engine](../../references/settings/#v1-data-engine) || Instance Manager component |
-  | [V2 Data Engine](../../references/settings/#v2-data-engine) | [V2 Data Engine (Preview Feature)](../../v2-data-engine/) | Instance Manager component |
-  | [Guaranteed Instance Manager CPU](../../references/settings/#guaranteed-instance-manager-cpu) || Instance Manager component |
-  | [Guaranteed Instance Manager CPU for V2 Data Engine](../../references/settings/#guaranteed-instance-manager-cpu-for-v2-data-engine) || Instance Manager component |
+  | [Kubernetes Taint Toleration](../../references/settings#kubernetes-taint-toleration)| [Taints and Tolerations](../../advanced-resources/deploy/taint-toleration/) | System-managed components |
+  | [Priority Class](../../references/settings#priority-class) | [Priority Class](../../advanced-resources/deploy/priority-class/) | System-managed components |
+  | [System Managed Components Node Selector](../../references/settings#system-managed-components-node-selector) | [Node Selector](../../advanced-resources/deploy/node-selector/) | System-managed components |
+  | [Storage Network](../../references/settings#storage-network) | [Storage Network](../../advanced-resources/deploy/storage-network/) | Instance Manager and Backing Image components |
+  | [V1 Data Engine](../../references/settings#v1-data-engine) || Instance Manager component |
+  | [V2 Data Engine](../../references/settings#v2-data-engine) | [V2 Data Engine (Preview Feature)](../../v2-data-engine/) | Instance Manager component |
+  | [Guaranteed Instance Manager CPU](../../references/settings#guaranteed-instance-manager-cpu) || Instance Manager component |
+  | [Guaranteed Instance Manager CPU for V2 Data Engine](../../references/settings#guaranteed-instance-manager-cpu-for-v2-data-engine) || Instance Manager component |
 
 For V1 and V2 Data Engine settings, you can disable the Data Engines only when all associated volumes are detached. For example, you can disable the V2 Data Engine only when all V2 volumes are detached (even when V1 volumes are still attached).
 

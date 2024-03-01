@@ -21,8 +21,6 @@ and provide them with basic commands to run to verify normal operation. It is a 
 Longhorn maintainers discover additional SELinux behaviors that are of interest. It is not intended to be a guide to
 SELinux or using SELinux with Kubernetes.
 
-<!-- truncate -->
-
 ## SELinux basics
 
 Security-Enhanced Linux (SELinux) is a security architecture for Linux systems that allows administrators to have more
@@ -202,5 +200,5 @@ putting SELinux in `permissive` mode will certainly temporarily resolve issues a
 - [container-selinux project](https://github.com/containers/container-selinux)
 - [K3s SElinux documentation](https://docs.k3s.io/advanced?_highlight=selinux#selinux-support)
 - [RKE2 SELinux documentation](https://docs.rke2.io/security/selinux)
-- [Specific SELinux troubleshooting KB](../troubleshooting-volume-attachment-fails-due-to-selinux-denials)
+- [Specific SELinux troubleshooting KB](../kb/troubleshooting-volume-attachment-fails-due-to-selinux-denials)
 - [Specific SELinux GitHub issue](https://github.com/longhorn/longhorn/issues/5348)

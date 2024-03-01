@@ -6,7 +6,7 @@ sidebar_position: 12
 ## Prerequisites
 - Your workstation: Install the [Argo CD CLI](https://argo-cd.readthedocs.io/en/stable/cli_installation/).
 - Kubernetes cluster:
-  - Ensure that each node fulfills the [installation requirements](../#installation-requirements).
+  - Ensure that each node fulfills the [installation requirements](..#installation-requirements).
   - Install [Argo CD](https://argo-cd.readthedocs.io/en/stable/).
 
     ```bash
@@ -93,6 +93,6 @@ sidebar_position: 12
     engine-image-ei-df38d2e5-cv6nc                      1/1     Running   0          114s
     ```
 
-1. [Create an NGINX Ingress controller with basic authentication](../../accessing-the-ui/longhorn-ingress) to access the Longhorn UI. Authentication to the Longhorn UI is not enabled by default.
+1. [Create an NGINX Ingress controller with basic authentication](../accessing-the-ui/longhorn-ingress) to access the Longhorn UI. Authentication to the Longhorn UI is not enabled by default.
 
-1. [Access the Longhorn UI](../../accessing-the-ui).
+1. [Access the Longhorn UI](../accessing-the-ui).

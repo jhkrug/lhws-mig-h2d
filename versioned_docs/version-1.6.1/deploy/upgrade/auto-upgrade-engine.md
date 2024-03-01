@@ -30,7 +30,7 @@ In the following cases, assume that the `concurrent automatic engine upgrade per
 
 1. Disaster Recovery Volumes
 
-   Longhorn doesn't automatically upgrade [disaster recovery volumes](../../../snapshots-and-backups/setup-disaster-recovery-volumes/) to the new default engine image because it would trigger a full restoration for the disaster recovery volumes.
+   Longhorn doesn't automatically upgrade [disaster recovery volumes](../../snapshots-and-backups/setup-disaster-recovery-volumes/) to the new default engine image because it would trigger a full restoration for the disaster recovery volumes.
 The full restoration might affect the performance of other running Longhorn volumes in the system.
 So, Longhorn leaves it to you to decide when it is the good time to manually upgrade the engine for disaster recovery volumes (e.g., when the system is idle or during the maintenance time).
 

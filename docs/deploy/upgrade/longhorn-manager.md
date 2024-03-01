@@ -11,7 +11,7 @@ Engine live upgrade is supported from v1.6.x to v{{< current-version >}}.
 
 For airgap upgrades when Longhorn is installed as a Rancher app, you will need to modify the image names and remove the registry URL part.
 
-For example, the image `registry.example.com/longhorn/longhorn-manager:v{{< current-version >}}` is changed to `longhorn/longhorn-manager:v{{< current-version >}}` in Longhorn images section. For more information, see the air gap installation steps [here.](../../install/airgap/#using-a-rancher-app)
+For example, the image `registry.example.com/longhorn/longhorn-manager:v{{< current-version >}}` is changed to `longhorn/longhorn-manager:v{{< current-version >}}` in Longhorn images section. For more information, see the air gap installation steps [here.](../install/airgap#using-a-rancher-app)
 
 #### Preparing for the Upgrade
 
@@ -85,7 +85,7 @@ csi-provisioner-869bdc4b79-sn6zr                      1/1     Running   1 (30s a
 longhorn-csi-plugin-b2zzj                             2/2     Running   0             24s
 ```
 
-Next, [upgrade Longhorn engine.](../upgrade-engine)
+Next, [upgrade Longhorn engine.](./upgrade-engine)
 
 ### Upgrading from Unsupported Versions
 

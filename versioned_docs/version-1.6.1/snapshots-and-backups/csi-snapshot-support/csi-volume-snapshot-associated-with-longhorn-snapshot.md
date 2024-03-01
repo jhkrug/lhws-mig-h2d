@@ -10,7 +10,7 @@ To programmatically create Longhorn snapshots, you can use the generic Kubernete
 > **Prerequisite:** CSI snapshot support needs to be enabled on your cluster.
 > If your kubernetes distribution does not provide the kubernetes snapshot controller
 > as well as the snapshot related custom resource definitions, you need to manually deploy them.
-> For more information, see [Enable CSI Snapshot Support](../enable-csi-snapshot-support).
+> For more information, see [Enable CSI Snapshot Support](./enable-csi-snapshot-support).
 
 ## Create A CSI VolumeSnapshot Associated With Longhorn Snapshot
 

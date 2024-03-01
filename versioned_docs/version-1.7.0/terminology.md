@@ -68,7 +68,7 @@ Backups can be created from snapshots. They contain the state of the volume at t
 
 Backups are made of 2 MB blocks in an object store.
 
-For a longer explanation of how snapshots and backups work, refer to the [conceptual documentation.](../concepts/#241-how-snapshots-work)
+For a longer explanation of how snapshots and backups work, refer to the [conceptual documentation.](./concepts#241-how-snapshots-work)
 
 ### Block storage
 
@@ -129,7 +129,7 @@ In an offline volume expansion, the volume is detached.
 
 ### Overprovisioning
 
-Overprovisioning allows a server to view more storage capacity than has been physically reserved. That means we can schedule a total of 750 GiB Longhorn volumes on a 200 GiB disk with 50G reserved for the root file system. The **Storage Over Provisioning Percentage** can be configured in the Longhorn [settings.](../references/settings)
+Overprovisioning allows a server to view more storage capacity than has been physically reserved. That means we can schedule a total of 750 GiB Longhorn volumes on a 200 GiB disk with 50G reserved for the root file system. The **Storage Over Provisioning Percentage** can be configured in the Longhorn [settings.](./references/settings)
 
 ### PersistentVolume
 
@@ -169,7 +169,7 @@ Backups external to the Kubernetes cluster, on S3 or NFS.
 
 ### Snapshot
 
-A snapshot in Longhorn captures the state of a volume at the time the snapshot is created. Each snapshot only captures changes that overwrite data from earlier snapshots, so a sequence of snapshots is needed to fully represent the full state of the volume. Volumes can be restored from a snapshot. For a longer explanation of snapshots, refer to the [conceptual documentation.](../concepts)
+A snapshot in Longhorn captures the state of a volume at the time the snapshot is created. Each snapshot only captures changes that overwrite data from earlier snapshots, so a sequence of snapshots is needed to fully represent the full state of the volume. Volumes can be restored from a snapshot. For a longer explanation of snapshots, refer to the [conceptual documentation.](./concepts)
 
 ### Stable identity
 
@@ -181,13 +181,13 @@ A [Kubernetes resource](https://kubernetes.io/docs/concepts/workloads/controller
 
 ### StorageClass
 
-A Kubernetes resource that can be used to automatically provision a PersistentVolume for a pod. For more information, refer to the [Kubernetes documentation.](https://kubernetes.io/docs/concepts/storage/storage-classes/#the-storageclass-resource)
+A Kubernetes resource that can be used to automatically provision a PersistentVolume for a pod. For more information, refer to the [Kubernetes documentation.](https://kubernetes.io/docs/concepts/storage/storage-classes#the-storageclass-resource)
 
 ### System Backup
 
 Longhorn uploads the system backup to the backupstore. Each system backup contains the system backup resource bundle of the Longhorn system.
 
-See [Longhorn System Backup Bundle](../advanced-resources/system-backup-restore/backup-longhorn-system/#longhorn-system-backup-bundle) for details.
+See [Longhorn System Backup Bundle](./advanced-resources/system-backup-restore/backup-longhorn-system#longhorn-system-backup-bundle) for details.
 
 ### Thin provisioning
 
@@ -201,7 +201,7 @@ A [Linux command](https://linux.die.net/man/8/umount) that detaches the file sys
 
 A volume in Kubernetes allows a pod to store files during the lifetime of the pod.
 
-These files will still be available after a container crashes, but they will not be available past the lifetime of a pod. To get storage that is still available after the lifetime of a pod, a Kubernetes [PersistentVolume (PV)](https://kubernetes.io/docs/concepts/storage/persistent-volumes/#persistent-volumes) is required.
+These files will still be available after a container crashes, but they will not be available past the lifetime of a pod. To get storage that is still available after the lifetime of a pod, a Kubernetes [PersistentVolume (PV)](https://kubernetes.io/docs/concepts/storage/persistent-volumes#persistent-volumes) is required.
 
 For more information, see the Kubernetes documentation on [volumes.](https://kubernetes.io/docs/concepts/storage/volumes/)
 

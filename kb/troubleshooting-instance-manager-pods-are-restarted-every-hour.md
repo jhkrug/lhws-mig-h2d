@@ -24,8 +24,8 @@ As the consequence, Longhorn volumes and the workload pods are crashed every hou
 
 ## Reason
 
-One potential root cause is that the cluster has the default PriorityClass (i.e., the PriorityClass with `globalDefault` field set to `true`) but the [PriorityClass setting](https://longhorn.io/docs/1.2.3/references/settings/#priority-class) in Longhorn is empty.
-See more about PriorityClass at [here](https://kubernetes.io/docs/concepts/scheduling-eviction/pod-priority-preemption/#priorityclass).
+One potential root cause is that the cluster has the default PriorityClass (i.e., the PriorityClass with `globalDefault` field set to `true`) but the [PriorityClass setting](https://longhorn.io/docs/1.2.3/references/settings#priority-class) in Longhorn is empty.
+See more about PriorityClass at [here](https://kubernetes.io/docs/concepts/scheduling-eviction/pod-priority-preemption#priorityclass).
 
 When Longhorn creates the instance manager pods, it doesn't set the PriorityClass for them because the PriorityClass setting in Longhorn is empty.
 Because the cluster has default PriorityClass, Kubernetes automatically uses it for newly created Pods without a PriorityClassName.

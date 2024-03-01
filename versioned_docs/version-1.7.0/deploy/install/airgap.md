@@ -176,7 +176,7 @@ In v{{< current-version >}}, Longhorn automatically adds `<REGISTRY_URL>` prefix
 
 ### Use default image name
 
-If you keep the images' names as recommended [here](./#recommendation), you only need to do the following steps:
+If you keep the images' names as recommended [here](#recommendation), you only need to do the following steps:
 
 1. Clone the Longhorn repo:
 
@@ -276,7 +276,7 @@ If you want to use custom images' names, you can use the following steps:
 
 ### Use default image name
 
-If you keep the images' names as recommended [here](./#recommendation), you only need to do the following steps:
+If you keep the images' names as recommended [here](#recommendation), you only need to do the following steps:
 
 - In the `Private Registry Settings` section specify:
    - Private registry URL

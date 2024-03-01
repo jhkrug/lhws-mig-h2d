@@ -15,7 +15,7 @@ All Longhorn versions.
 
 Recurring job does not create new jobs when the volume is attached after being detached for a long time.
 
-According to Kubernetes [CronJob limitations](https://kubernetes.io/docs/concepts/workloads/controllers/cron-jobs/#cron-job-limitations):
+According to Kubernetes [CronJob limitations](https://kubernetes.io/docs/concepts/workloads/controllers/cron-jobs#cron-job-limitations):
 > For every CronJob, the CronJob Controller checks how many schedules it missed in the duration from its last scheduled time until now. If there are more than 100 missed schedules, then it does not start the job and logs the error
 >
 >```

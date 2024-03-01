@@ -3,14 +3,14 @@ title: CSI VolumeSnapshot Associated with Longhorn Backup
 sidebar_position: 3
 ---
 
-Backups in Longhorn are objects in an off-cluster backupstore, and the endpoint to access the backupstore is the backup target. For more information, see [this section.](../../../concepts/#31-how-backups-work)
+Backups in Longhorn are objects in an off-cluster backupstore, and the endpoint to access the backupstore is the backup target. For more information, see [this section.](../../concepts#31-how-backups-work)
 
 To programmatically create backups, you can use the generic Kubernetes CSI VolumeSnapshot mechanism. To learn more about the CSI VolumeSnapshot mechanism, click [here](https://kubernetes.io/docs/concepts/storage/volume-snapshots/).
 
 > **Prerequisite:** CSI snapshot support needs to be enabled on your cluster.
 > If your kubernetes distribution does not provide the kubernetes snapshot controller
 > as well as the snapshot related custom resource definitions, you need to manually deploy them.
-> For more information, see [Enable CSI Snapshot Support](../enable-csi-snapshot-support).
+> For more information, see [Enable CSI Snapshot Support](./enable-csi-snapshot-support).
 
 ## Create A CSI VolumeSnapshot Associated With Longhorn Backup
 

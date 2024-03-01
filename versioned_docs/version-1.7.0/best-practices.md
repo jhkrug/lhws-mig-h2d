@@ -101,13 +101,13 @@ Since Longhorn doesn't currently support sharding between the different disks, w
 
 Any extra disks must be written in the `/etc/fstab` file to allow automatic mounting after the machine reboots.
 
-Don't use a symbolic link for the extra disks. Use `mount --bind` instead of `ln -s` and make sure it's in the `fstab` file. For details, see [the section about multiple disk support.](../nodes-and-volumes/nodes/multidisk/#use-an-alternative-path-for-a-disk-on-the-node)
+Don't use a symbolic link for the extra disks. Use `mount --bind` instead of `ln -s` and make sure it's in the `fstab` file. For details, see [the section about multiple disk support.](./nodes-and-volumes/nodes/multidisk#use-an-alternative-path-for-a-disk-on-the-node)
 
 ## Configuring Default Disks Before and After Installation
 
-To use a directory other than the default `/var/lib/longhorn` for storage, the `Default Data Path` setting can be changed before installing the system. For details on changing pre-installation settings, refer to [this section.](../advanced-resources/deploy/customizing-default-settings)
+To use a directory other than the default `/var/lib/longhorn` for storage, the `Default Data Path` setting can be changed before installing the system. For details on changing pre-installation settings, refer to [this section.](./advanced-resources/deploy/customizing-default-settings)
 
-The [Default node/disk configuration](../nodes-and-volumes/nodes/default-disk-and-node-config) feature can be used to customize the default disk after installation. Customizing the default configurations for disks and nodes is useful for scaling the cluster because it eliminates the need to configure Longhorn manually for each new node if the node contains more than one disk, or if the disk configuration is different for new nodes. Remember to enable `Create default disk only on labeled node` if applicable.
+The [Default node/disk configuration](./nodes-and-volumes/nodes/default-disk-and-node-config) feature can be used to customize the default disk after installation. Customizing the default configurations for disks and nodes is useful for scaling the cluster because it eliminates the need to configure Longhorn manually for each new node if the node contains more than one disk, or if the disk configuration is different for new nodes. Remember to enable `Create default disk only on labeled node` if applicable.
 
 ## Volume Performance Optimization  
 
@@ -121,11 +121,11 @@ The following sections outline other recommendations for production environments
 
 ### IO Performance  
 
-- **Storage network**: Use a [dedicated storage network](https://longhorn.io/docs/1.6.0/advanced-resources/deploy/storage-network/#setting-storage-network) to improve IO performance and stability.  
+- **Storage network**: Use a [dedicated storage network](https://longhorn.io/docs/1.6.0/advanced-resources/deploy/storage-network#setting-storage-network) to improve IO performance and stability.  
 
-- **Longhorn disk**: Use a [dedicated disk](https://longhorn.io/docs/1.6.0/nodes-and-volumes/multidisk/#add-a-disk) for Longhorn storage instead of using the root disk.  
+- **Longhorn disk**: Use a [dedicated disk](https://longhorn.io/docs/1.6.0/nodes-and-volumes/multidisk#add-a-disk) for Longhorn storage instead of using the root disk.  
 
-- **Replica count**: Set the [default replica count](https://longhorn.io/docs/1.6.0/references/settings/#default-replica-count) to "2" to achieve data availability with better disk space usage or less impact to system performance. This practice is especially beneficial to data-intensive applications.  
+- **Replica count**: Set the [default replica count](https://longhorn.io/docs/1.6.0/references/settings#default-replica-count) to "2" to achieve data availability with better disk space usage or less impact to system performance. This practice is especially beneficial to data-intensive applications.  
 
 - **Storage tag**: Use [storage tags](https://longhorn.io/docs/1.6.0/nodes-and-volumes/storage-tags/) to define storage tiering for data-intensive applications. For example, only high-performance disks can be used for storing performance-sensitive data.  
 
@@ -139,7 +139,7 @@ The following sections outline other recommendations for production environments
 
 - **Recurring snapshots**: Periodically clean up system-generated snapshots and retain only the number of snapshots that makes sense for your implementation.  
 
-  For applications with replication capability, periodically [delete all types of snapshots](https://longhorn.io/docs/1.6.0/concepts/#243-deleting-snapshots).  
+  For applications with replication capability, periodically [delete all types of snapshots](https://longhorn.io/docs/1.6.0/concepts#243-deleting-snapshots).  
 
 - **Recurring filesystem trim**: Periodically [trim the filesystem](https://longhorn.io/docs/1.6.0/nodes-and-volumes/trim-filesystem/) inside volumes to reclaim disk space.  
 
@@ -149,11 +149,11 @@ The following sections outline other recommendations for production environments
 
 - **Recurring backups**: Create [recurring backup jobs](https://longhorn.io/docs/1.6.0/nodes-and-volumes/trim-filesystem/) for mission-critical application volumes.  
 
-- **System backup**: Create periodic [system backups](https://longhorn.io/docs/1.6.0/advanced-resources/system-backup-restore/backup-longhorn-system/#create-longhorn-system-backup).  
+- **System backup**: Create periodic [system backups](https://longhorn.io/docs/1.6.0/advanced-resources/system-backup-restore/backup-longhorn-system#create-longhorn-system-backup).  
 
 ## Deploying Workloads
 
-If you're using `ext4` as the filesystem of the volume, we recommend adding a liveness check to workloads to help automatically recover from a network-caused interruption, a node reboot, or a Docker restart. See [this section](../high-availability/recover-volume/) for details.
+If you're using `ext4` as the filesystem of the volume, we recommend adding a liveness check to workloads to help automatically recover from a network-caused interruption, a node reboot, or a Docker restart. See [this section](./high-availability/recover-volume/) for details.
 
 ## Volume Maintenance
 
@@ -175,7 +175,7 @@ You can also set a specific milli CPU value for instance manager pods on a parti
 
 > **Note:** This field will overwrite the above setting for the specified node.
 
-Refer to [Guaranteed Instance Manager CPU](../references/settings/#guaranteed-instance-manager-cpu) for more details.
+Refer to [Guaranteed Instance Manager CPU](./references/settings#guaranteed-instance-manager-cpu) for more details.
 
 ### V2 Data Engine
 
@@ -183,7 +183,7 @@ The `Guaranteed Instance Manager CPU for V2 Data Engine` setting allows you to r
 
 ## StorageClass
 
-We don't recommend modifying the default StorageClass named `longhorn`, since the change of parameters might cause issues during an upgrade later. If you want to change the parameters set in the StorageClass, you can create a new StorageClass by referring to the [StorageClass examples](../references/examples/#storageclass).
+We don't recommend modifying the default StorageClass named `longhorn`, since the change of parameters might cause issues during an upgrade later. If you want to change the parameters set in the StorageClass, you can create a new StorageClass by referring to the [StorageClass examples](./references/examples#storageclass).
 
 ## Scheduling Settings
 

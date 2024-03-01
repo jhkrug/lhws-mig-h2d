@@ -7,11 +7,11 @@ Longhorn creates a dedicated storage controller for each volume and synchronousl
 
 The storage controller and replicas are themselves orchestrated using Kubernetes.
 
-For an overview of Longhorn features, refer to [this section.](../what-is-longhorn)
+For an overview of Longhorn features, refer to [this section.](./what-is-longhorn)
 
-For the installation requirements, go to [this section.](../deploy/install/#installation-requirements)
+For the installation requirements, go to [this section.](./deploy/install#installation-requirements)
 
-> This section assumes familiarity with Kubernetes persistent storage concepts. For more information on these concepts, refer to the [appendix.](#appendix-how-persistent-storage-works-in-kubernetes) For help with the terminology used in this page, refer to [this section.](../terminology)
+> This section assumes familiarity with Kubernetes persistent storage concepts. For more information on these concepts, refer to the [appendix.](#appendix-how-persistent-storage-works-in-kubernetes) For help with the terminology used in this page, refer to [this section.](./terminology)
 
 - [1. Design](#1-design)
   - [1.1. The Longhorn Manager and the Longhorn Engine](#11-the-longhorn-manager-and-the-longhorn-engine)
@@ -88,7 +88,7 @@ Longhorn can create a long-running job to orchestrate the upgrade of all live vo
 The Longhorn CSI driver takes the block device, formats it, and mounts it on the node. Then the [kubelet](https://kubernetes.io/docs/reference/command-line-tools-reference/kubelet/) bind-mounts the device inside a Kubernetes Pod. This allows the Pod to access the Longhorn volume.
 
 The required Kubernetes CSI Driver images will be deployed automatically by the longhorn driver deployer.
-To install Longhorn in an air gapped environment, refer to [this section](../deploy/install/airgap).
+To install Longhorn in an air gapped environment, refer to [this section](./deploy/install/airgap).
 
 ## 1.4. CSI Plugin
 
@@ -104,7 +104,7 @@ Longhorn does leverage iSCSI, so extra configuration of the node may be required
 
 The Longhorn UI interacts with the Longhorn Manager through the Longhorn API, and acts as a complement of Kubernetes. Through the Longhorn UI, you can manage snapshots, backups, nodes and disks.
 
-Besides, the space usage of the cluster worker nodes is collected and illustrated by the Longhorn UI. See [here](../nodes-and-volumes/nodes/node-space-usage) for details.
+Besides, the space usage of the cluster worker nodes is collected and illustrated by the Longhorn UI. See [here](./nodes-and-volumes/nodes/node-space-usage) for details.
 
 # 2. Longhorn Volumes and Primary Storage
 
@@ -120,7 +120,7 @@ Longhorn is a thin-provisioned storage system. That means a Longhorn volume will
 
 A Longhorn volume itself cannot shrink in size if you’ve removed content from your volume. For example, if you create a volume of 20 GB, used 10 GB, then removed the content of 9 GB, the actual size on the disk would still be 10 GB instead of 1 GB. This happens because Longhorn operates on the block level, not the filesystem level, so Longhorn doesn’t know if the content has been removed by a user or not. That information is mostly kept at the filesystem level.
 
-For more introductions about the volume-size related concepts, see this [doc](../nodes-and-volumes/volumes/volume-size) for more details.
+For more introductions about the volume-size related concepts, see this [doc](./nodes-and-volumes/volumes/volume-size) for more details.
 
 ### 2.2. Reverting Volumes in Maintenance Mode
 
@@ -138,7 +138,7 @@ Each replica contains a chain of snapshots of a Longhorn volume. A snapshot is l
 
 For each Longhorn volume, multiple replicas of the volume should run in the Kubernetes cluster, each on a separate node. All replicas are treated the same, and the Longhorn Engine always runs on the same node as the pod, which is also the consumer of the volume. In that way, we make sure that even if the Pod is down, the Engine can be moved to another Pod and your service will continue undisrupted.
 
-The default replica count can be changed in the [settings.](../references/settings/#default-replica-count) When a volume is attached, the replica count for the volume can be changed in the UI.
+The default replica count can be changed in the [settings.](./references/settings#default-replica-count) When a volume is attached, the replica count for the volume can be changed in the UI.
 
 If the current healthy replica count is less than specified replica count, Longhorn will start rebuilding new replicas.
 
@@ -355,7 +355,7 @@ To understand persistent storage in Kubernetes, it is important to understand Vo
 
 One important property of a Kubernetes Volume is that it has the same lifecycle as the Pod it belongs to. The Volume is lost if the Pod is gone. In contrast, a PersistentVolume continues to exist in the system until users delete it. Volumes can also be used to share data between containers inside the same Pod, but this isn’t the primary use case because users normally only have one container per Pod.
 
-A [PersistentVolume (PV)](https://kubernetes.io/docs/concepts/storage/persistent-volumes/) is a piece of persistent storage in the Kubernetes cluster, while a [PersistentVolumeClaim (PVC)](https://kubernetes.io/docs/concepts/storage/persistent-volumes/#persistentvolumeclaims) is a request for storage. [StorageClasses](https://kubernetes.io/docs/concepts/storage/storage-classes/) allow new storage to be dynamically provisioned for workloads on demand.
+A [PersistentVolume (PV)](https://kubernetes.io/docs/concepts/storage/persistent-volumes/) is a piece of persistent storage in the Kubernetes cluster, while a [PersistentVolumeClaim (PVC)](https://kubernetes.io/docs/concepts/storage/persistent-volumes#persistentvolumeclaims) is a request for storage. [StorageClasses](https://kubernetes.io/docs/concepts/storage/storage-classes/) allow new storage to be dynamically provisioned for workloads on demand.
 
 ## How Kubernetes Workloads use New and Existing Persistent Storage
 
@@ -409,6 +409,6 @@ Those PVCs are created using a StorageClass, so they can be set up automatically
 
 When a StatefulSet scales down, the extra PVs/PVCs are kept in the cluster, and they are reused when the StatefulSet scales up again.
 
-The VolumeClaimTemplate is important for block storage solutions like EBS and Longhorn. Because those solutions are inherently [ReadWriteOnce,](https://kubernetes.io/docs/concepts/storage/persistent-volumes/#access-modes) they cannot be shared between the Pods.
+The VolumeClaimTemplate is important for block storage solutions like EBS and Longhorn. Because those solutions are inherently [ReadWriteOnce,](https://kubernetes.io/docs/concepts/storage/persistent-volumes#access-modes) they cannot be shared between the Pods.
 
 Deployments don't work well with persistent storage if you have more than one Pod running with persistent data. For more than one pod, a StatefulSet should be used.

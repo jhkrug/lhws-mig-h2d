@@ -26,7 +26,7 @@ The Multus NetworkAttachmentDefinition network for the storage network setting m
 You can verify by creating a simple DaemonSet and try ping between pods.
 
 ### Setting Storage Network During Longhorn Installation
-Follow the [Customize default settings](../customizing-default-settings/) to set Storage Network by changing the value for the `storage-network` default setting
+Follow the [Customize default settings](./customizing-default-settings/) to set Storage Network by changing the value for the `storage-network` default setting
 
 > **Warning:** Longhorn instance-manager will not start if the Storage Network setting is invalid.
 >
@@ -36,7 +36,7 @@ Follow the [Customize default settings](../customizing-default-settings/) to set
 
 ### Setting Storage Network After Longhorn Installation
 
-Set the setting [Storage Network](../../../references/settings#storage-network).
+Set the setting [Storage Network](../../references/settings#storage-network).
 
 > **Warning:** Do not modify the NetworkAttachmentDefinition custom resource after applying it to the setting.
 >

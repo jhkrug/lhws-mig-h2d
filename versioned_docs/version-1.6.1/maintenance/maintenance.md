@@ -41,8 +41,8 @@ This section describes how to handle planned node maintenance or upgrading Kuber
 
    > **Note:** By default, if there is one last healthy replica for a volume on the node, Longhorn will prevent the node
    > from completing the drain operation, to protect the last replica and prevent the disruption of the workload. You
-   > can control this behavior with the setting [Node Drain Policy](../../references/settings#node-drain-policy), or
-   > [evict the replica to other nodes before draining](../../nodes-and-volumes/nodes/disks-or-nodes-eviction). See [Node Drain Policy
+   > can control this behavior with the setting [Node Drain Policy](../references/settings#node-drain-policy), or
+   > [evict the replica to other nodes before draining](../nodes-and-volumes/nodes/disks-or-nodes-eviction). See [Node Drain Policy
    > Recommendations](#node-drain-policy-recommendations) for considerations when selecting a policy.
 
    After the drain is completed, there should be no engine or replica processes running on the node, as the
@@ -58,7 +58,7 @@ This section describes how to handle planned node maintenance or upgrading Kuber
 1. Perform the necessary maintenance, including shutting down or rebooting the node.
 1. Uncordon the node. Longhorn will automatically re-enable the node scheduling. If there are existing replicas on the
    node, Longhorn might use those replicas to speed up the rebuilding process. You can set the [Replica Replenishment
-   Wait Interval](../../references/settings#replica-replenishment-wait-interval) setting to customize how long Longhorn
+   Wait Interval](../references/settings#replica-replenishment-wait-interval) setting to customize how long Longhorn
    should wait for potentially reusable replica to be available.
 
 ## Removing a Disk
@@ -102,7 +102,7 @@ To remove a node:
 In-place upgrade is upgrading method in which nodes are upgraded without being removed from the cluster. Some example
 solutions that use this upgrade methods are [k3s automated upgrades](https://docs.k3s.io/upgrades/automated), [Rancher's
 Kubernetes upgrade
-guide](https://rancher.com/docs/rancher/v2.x/en/cluster-admin/upgrading-kubernetes/#upgrading-the-kubernetes-version),
+guide](https://rancher.com/docs/rancher/v2.x/en/cluster-admin/upgrading-kubernetes#upgrading-the-kubernetes-version),
 [Kubeadm upgrade](https://kubernetes.io/docs/tasks/administer-cluster/kubeadm/kubeadm-upgrade/), etc...
 
 With the assumption that node and disks are not being deleted/removed, the recommended upgrading guide is:
@@ -115,13 +115,13 @@ With the assumption that node and disks are not being deleted/removed, the recom
    never timeout).
 3. The number of nodes upgrading at a time should be smaller than the number of Longhorn replicas for each volume.
    This is so that a running Longhorn volume has at least one healthy replica running at a time.
-4. Consider setting the setting [Node Drain Policy](../../references/settings#node-drain-policy) to
+4. Consider setting the setting [Node Drain Policy](../references/settings#node-drain-policy) to
    `allow-if-replica-is-stopped` so that the drain is not blocked by the last healthy replica of a detached volume. See
    [Node Drain Policy Recommendations](#node-drain-policy-recommendations) for considerations when selecting a policy.
 
 ### Managed Kubernetes
 
-See the instruction at [Support Managed Kubernetes Service](../../advanced-resources/support-managed-k8s-service).
+See the instruction at [Support Managed Kubernetes Service](../advanced-resources/support-managed-k8s-service).
 
 ## Node Drain Policy Recommendations
 

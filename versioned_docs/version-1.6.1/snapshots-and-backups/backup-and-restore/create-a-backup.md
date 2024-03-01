@@ -3,9 +3,9 @@ title: Create a Backup
 sidebar_position: 2
 ---
 
-Backups in Longhorn are objects in an off-cluster backupstore. A backup of a snapshot is copied to the backupstore, and the endpoint to access the backupstore is the backup target. For more information, see [this section.](../../../concepts/#31-how-backups-work)
+Backups in Longhorn are objects in an off-cluster backupstore. A backup of a snapshot is copied to the backupstore, and the endpoint to access the backupstore is the backup target. For more information, see [this section.](../../concepts#31-how-backups-work)
 
-> **Prerequisite:** A backup target must be set up. For more information, see [Set the BackupTarget](../set-backup-target). If the BackupTarget has not been set, you'll be presented with an error.
+> **Prerequisite:** A backup target must be set up. For more information, see [Set the BackupTarget](./set-backup-target). If the BackupTarget has not been set, you'll be presented with an error.
 
 To create a backup,
 
@@ -16,4 +16,4 @@ To create a backup,
 
 **Result:** The backup is created. To see it, click **Backup** in the top navigation bar.
 
-For information on how to restore a volume from a snapshot, refer to [this page.](../restore-from-a-backup)
+For information on how to restore a volume from a snapshot, refer to [this page.](./restore-from-a-backup)

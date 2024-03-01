@@ -5,11 +5,11 @@ sidebar_position: 1
 
 This document is a quick guide to setting up the monitor for Longhorn.
 
-Longhorn natively exposes metrics in [Prometheus text format](https://prometheus.io/docs/instrumenting/exposition_formats/#text-based-format) on a REST endpoint `http://LONGHORN_MANAGER_IP:PORT/metrics`.
+Longhorn natively exposes metrics in [Prometheus text format](https://prometheus.io/docs/instrumenting/exposition_formats#text-based-format) on a REST endpoint `http://LONGHORN_MANAGER_IP:PORT/metrics`.
 
 You can use any collecting tools such as [Prometheus](https://prometheus.io/), [Graphite](https://graphiteapp.org/), [Telegraf](https://www.influxdata.com/time-series-platform/telegraf/) to scrape these metrics then visualize the collected data by tools such as [Grafana](https://grafana.com/).
 
-See [Longhorn Metrics for Monitoring](../metrics) for available metrics.
+See [Longhorn Metrics for Monitoring](./metrics) for available metrics.
 
 ## High-level Overview
 
@@ -174,7 +174,7 @@ See [Prometheus - Configuration](https://prometheus.io/docs/alerting/latest/conf
 
 ### Install and configure Prometheus server
 
-1. Create PrometheusRule custom resource to define alert conditions. See more examples about Longhorn alert rules at [Longhorn Alert Rule Examples](../alert-rules-example).
+1. Create PrometheusRule custom resource to define alert conditions. See more examples about Longhorn alert rules at [Longhorn Alert Rule Examples](./alert-rules-example).
 
     ```yaml
     apiVersion: monitoring.coreos.com/v1
@@ -200,7 +200,7 @@ See [Prometheus - Configuration](https://prometheus.io/docs/alerting/latest/conf
             issue: Longhorn volume {{$labels.volume}} usage on {{$labels.node}} is critical.
             severity: critical
     ```
-   See [Prometheus - Alerting rules](https://prometheus.io/docs/prometheus/latest/configuration/alerting_rules/#alerting-rules) for more information.
+   See [Prometheus - Alerting rules](https://prometheus.io/docs/prometheus/latest/configuration/alerting_rules#alerting-rules) for more information.
 
 1. If [RBAC](https://kubernetes.io/docs/reference/access-authn-authz/authorization/) authorization is activated, Create a ClusterRole and ClusterRoleBinding for the Prometheus Pods.
 

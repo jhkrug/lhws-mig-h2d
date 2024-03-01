@@ -157,7 +157,7 @@ You can also provide a copy of the `values.yaml` file with the default settings 
    ```
 
 For more info about using helm, see the section about
-[installing Longhorn with Helm](../../../deploy/install/install-with-helm)
+[installing Longhorn with Helm](../../deploy/install/install-with-helm)
 
 ## Update Settings
 

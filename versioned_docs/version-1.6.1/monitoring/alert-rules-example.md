@@ -4,7 +4,7 @@ sidebar_position: 5
 ---
 
 We provide a couple of example Longhorn alert rules below for your references.
-See [here](../metrics) for a list of all available Longhorn metrics and build your own alert rules.
+See [here](./metrics) for a list of all available Longhorn metrics and build your own alert rules.
 
 ```yaml
 apiVersion: monitoring.coreos.com/v1
@@ -100,4 +100,4 @@ spec:
         severity: warning
 ```
 
-See more about how to define alert rules at [here](https://prometheus.io/docs/prometheus/latest/configuration/alerting_rules/#alerting-rules).
+See more about how to define alert rules at [here](https://prometheus.io/docs/prometheus/latest/configuration/alerting_rules#alerting-rules).

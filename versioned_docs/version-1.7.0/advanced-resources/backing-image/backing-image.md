@@ -16,7 +16,7 @@ You can prepare a backing image using four different kinds of data sources.
 1. Download a backing image file (using a URL).
 2. Upload a file from your local machine. This option is available to Longhorn UI users.
 3. Export an existing in-cluster volume as a backing image.
-4. Restore a backing image from the backupstore, For more information, see [Backing Image Backup](../backing-image-backup).
+4. Restore a backing image from the backupstore, For more information, see [Backing Image Backup](./backing-image-backup).
 
 #### The checksum of a backing image
 - The checksum of a backing image is **the SHA512 checksum** of the whole backing image **file** rather than that of the actual content.
@@ -107,7 +107,7 @@ spec:
 
 ## Utilize a backing image in a volume
 
-Users can [directly create then immediately use a backing image via StorageClass](./#create-and-use-a-backing-image-via-storageclass-and-pvc),
+Users can [directly create then immediately use a backing image via StorageClass](#create-and-use-a-backing-image-via-storageclass-and-pvc),
 or utilize an existing backing image as mentioned below.
 
 #### Use an existing backing
@@ -132,7 +132,7 @@ Since v1.3.0, users can download existing backing image files to the local via U
 ## Clean up backing images
 
 #### Clean up backing images in disks
-- Longhorn automatically cleans up the unused backing image files in the disks based on [the setting `Backing Image Cleanup Wait Interval`](../../../references/settings#backing-image-cleanup-wait-interval). But Longhorn will retain at least one file in a disk for each backing image anyway.
+- Longhorn automatically cleans up the unused backing image files in the disks based on [the setting `Backing Image Cleanup Wait Interval`](../../references/settings#backing-image-cleanup-wait-interval). But Longhorn will retain at least one file in a disk for each backing image anyway.
 - The unused backing images can be also cleaned up manually via the Longhorn UI: Click **Setting > Backing Image > Operation list of one backing image > Clean Up**. Then choose disks.
 - Once there is one replica in a disk using a backing image, no matter what the replica's current state is, the backing image file in this disk cannot be cleaned up.
 

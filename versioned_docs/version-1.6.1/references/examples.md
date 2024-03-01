@@ -241,7 +241,7 @@ spec:
 
 ### Restore to File
 
-For more information about restoring to file, refer to [this section.](../../advanced-resources/data-recovery/recover-without-system)
+For more information about restoring to file, refer to [this section.](../advanced-resources/data-recovery/recover-without-system)
 
 ```
 apiVersion: v1
@@ -447,4 +447,4 @@ parameters:
 ```
 
 Note that Longhorn supports automatic remount only for the workload pod that is managed by a controller (e.g. deployment, statefulset, daemonset, etc...).
-See [here](../../high-availability/recover-volume/) for details.
+See [here](../high-availability/recover-volume/) for details.

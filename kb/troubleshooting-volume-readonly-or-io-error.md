@@ -53,7 +53,7 @@ The mount point of the Longhorn volume becomes invalid once the Longhorn volume 
 ### Root causes
 An engine crash is normally contributed to by losing the connections to every single replica. Here are the possible reasons why that's happened:
 
-1. CPU utilization is too high on the node. If the Longhorn engine doesn't have enough CPU resources to handle the request, the request might time out, result in losing the connection to a replica. You can refer to [this doc](https://longhorn.io/docs/1.1.0/best-practices/#guaranteed-engine-cpu) to see how to reserve the proper amount of CPU resources for Longhorn instance manager pods.
+1. CPU utilization is too high on the node. If the Longhorn engine doesn't have enough CPU resources to handle the request, the request might time out, result in losing the connection to a replica. You can refer to [this doc](https://longhorn.io/docs/1.1.0/best-practices#guaranteed-engine-cpu) to see how to reserve the proper amount of CPU resources for Longhorn instance manager pods.
 2. The network bandwidth is not sufficient. Normally 1Gbps network will only able to serve 3 volumes if all of those volumes are running a high intensive workload.
 3. The network latency is relatively high. If there are multiple volumes r/w simultaneously on a node, it's better to guarantee that the latency is less than 20ms.
 4. Network interruption. It can result in all replicas disconnecting, then an engine crash.
@@ -62,7 +62,7 @@ An engine crash is normally contributed to by losing the connections to every si
 ### Automatic recovery
 For Longhorn versions earlier than v1.1.0, Longhorn will try to remount the volume automatically, but the scenarios it can handle are limited.
 
-Since Longhorn version v1.1.0, a new setting [`Automatically Delete Workload Pod when The Volume Is Detached Unexpectedly`](https://longhorn.io/docs/1.1.0/references/settings/#automatically-delete-workload-pod-when-the-volume-is-detached-unexpectedly) is introduced so that Longhorn will automatically delete the workload pod that is managed by a controller (e.g. deployment, statefulset, daemonset, etc...).
+Since Longhorn version v1.1.0, a new setting [`Automatically Delete Workload Pod when The Volume Is Detached Unexpectedly`](https://longhorn.io/docs/1.1.0/references/settings#automatically-delete-workload-pod-when-the-volume-is-detached-unexpectedly) is introduced so that Longhorn will automatically delete the workload pod that is managed by a controller (e.g. deployment, statefulset, daemonset, etc...).
 
 #### Manual recovery
 If the workload is a simple pod, you can delete and re-deploy the pod. Please make sure the related PVC or PV is not removed if the reclaim policy is not `Retain`. Otherwise, the Longhorn volume will be removed once the related PVC/PV is gone.

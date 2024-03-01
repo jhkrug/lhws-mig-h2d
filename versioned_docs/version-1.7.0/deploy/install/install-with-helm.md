@@ -7,7 +7,7 @@ In this section, you will learn how to install Longhorn with Helm.
 
 ### Prerequisites
 
-- Kubernetes cluster: Ensure that each node fulfills the [installation requirements](../#installation-requirements).
+- Kubernetes cluster: Ensure that each node fulfills the [installation requirements](..#installation-requirements).
 - Your workstation: Install [Helm](https://helm.sh/docs/) v3.0 or later.
 
 > [This script](https://github.com/longhorn/longhorn/blob/v{{< current-version >}}/scripts/environment_check.sh) can be used to check the Longhorn environment for potential issues.
@@ -16,7 +16,7 @@ In this section, you will learn how to install Longhorn with Helm.
 
 
 > **Note**:
-> * The initial settings for Longhorn can be found in [customized using Helm options or by editing the deployment configuration file.](../../../advanced-resources/deploy/customizing-default-settings/#using-helm)
+> * The initial settings for Longhorn can be found in [customized using Helm options or by editing the deployment configuration file.](../../advanced-resources/deploy/customizing-default-settings#using-helm)
 > * For Kubernetes < v1.25, if your cluster still enables Pod Security Policy admission controller, set the helm value `enablePSP` to `true` to install `longhorn-psp` PodSecurityPolicy resource which allows privileged Longhorn pods to start.
 
 
@@ -68,6 +68,6 @@ In this section, you will learn how to install Longhorn with Helm.
     engine-image-ei-df38d2e5-cv6nc                      1/1     Running   0          114s
     ```
 
-5. To enable access to the Longhorn UI, you will need to set up an Ingress controller. Authentication to the Longhorn UI is not enabled by default. For information on creating an NGINX Ingress controller with basic authentication, refer to [this section.](../../accessing-the-ui/longhorn-ingress)
+5. To enable access to the Longhorn UI, you will need to set up an Ingress controller. Authentication to the Longhorn UI is not enabled by default. For information on creating an NGINX Ingress controller with basic authentication, refer to [this section.](../accessing-the-ui/longhorn-ingress)
 
-6. Access the Longhorn UI using [these steps.](../../accessing-the-ui)
+6. Access the Longhorn UI using [these steps.](../accessing-the-ui)

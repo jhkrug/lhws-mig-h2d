@@ -11,7 +11,7 @@ By default, Longhorn blocks Kubernetes Cluster Autoscaler from scaling down node
 
 For more information, see [What types of pods can prevent CA from removing a node?](https://github.com/kubernetes/autoscaler/blob/master/cluster-autoscaler/FAQ.md#what-types-of-pods-can-prevent-ca-from-removing-a-node)
 
-If you want to unblock the Kubernetes Cluster Autoscaler scaling, you can set the setting [Kubernetes Cluster Autoscaler Enabled](../../references/settings#kubernetes-cluster-autoscaler-enabled-experimental).
+If you want to unblock the Kubernetes Cluster Autoscaler scaling, you can set the setting [Kubernetes Cluster Autoscaler Enabled](../references/settings#kubernetes-cluster-autoscaler-enabled-experimental).
 
 When this setting is enabled, Longhorn will retain the least instance-manager PodDisruptionBudget as possible. Each volume will have at least one replica under the protection of an instance-manager PodDisruptionBudget while no redundant PodDisruptionBudget blocking the Cluster Autoscaler from from scaling down.
 

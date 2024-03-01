@@ -50,7 +50,7 @@ To trim an RWX volume, perform the following steps:
 
 #### Periodically trim the filesystem
 
-You can set up a [RecurringJob](../../../snapshots-and-backups/scheduling-backups-and-snapshots/#set-up-recurring-jobs) to periodically trim the filesystem.
+You can set up a [RecurringJob](../../snapshots-and-backups/scheduling-backups-and-snapshots#set-up-recurring-jobs) to periodically trim the filesystem.
 
 ## Automatically Remove Snapshots During Filesystem Trim
 
@@ -58,7 +58,7 @@ By design each valid snapshot of a Longhorn volume is immutable. Hence Longhorn 
 
 #### The Global Setting "Remove Snapshots During Filesystem Trim"
 
-To help reclaim as much space as possible automatically, Longhorn introduces [setting _Remove Snapshots During Filesystem Trim_](../../../references/settings/#remove-snapshots-during-filesystem-trim). This allows Longhorn filesystem trim feature to automatically mark the latest snapshot and its ancestors as removed and stops at the snapshot containing multiple children. As a result, Longhorn can reclaim space for as more snapshots as possible.
+To help reclaim as much space as possible automatically, Longhorn introduces [setting _Remove Snapshots During Filesystem Trim_](../../references/settings#remove-snapshots-during-filesystem-trim). This allows Longhorn filesystem trim feature to automatically mark the latest snapshot and its ancestors as removed and stops at the snapshot containing multiple children. As a result, Longhorn can reclaim space for as more snapshots as possible.
 
 #### The Volume Spec Field "UnmapMarkSnapChainRemoved"
 

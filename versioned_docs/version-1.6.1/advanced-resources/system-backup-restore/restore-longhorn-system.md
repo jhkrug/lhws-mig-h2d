@@ -20,7 +20,7 @@ sidebar_position: 2
 
 ## Longhorn System Restore Rollouts
 
-- Longhorn restores the resource from the [Longhorn System Backup Bundle](../backup-longhorn-system#longhorn-system-backup-bundle).
+- Longhorn restores the resource from the [Longhorn System Backup Bundle](./backup-longhorn-system#longhorn-system-backup-bundle).
 - Longhorn does not restore existing `Volumes` and their associated `PersistentVolume` and `PersistentVolumeClaim`.
 - Longhorn automatically restores a `Volume` from its latest backup.
 - To prevent overwriting eligible settings, Longhorn does not restore the `ConfigMap/longhorn-default-setting`.
@@ -40,7 +40,7 @@ You can restore the Longhorn system using Longhorn UI. Or with the `kubectl` com
 - Set up the `Nodes` and disk tags for `StorageClass`.
 - Have a Longhorn system backup.
 
-  See [Backup Longhorn System - Create Longhorn System Backup](../backup-longhorn-system#create-longhorn-system-backup) for instructions.
+  See [Backup Longhorn System - Create Longhorn System Backup](./backup-longhorn-system#create-longhorn-system-backup) for instructions.
 - Have volume `BackingImages` available in the cluster.
 
   In case of the `BackingImage` absence, Longhorn will skip the restoration for that `Volume` and its `PersistentVolume` and `PersistentVolumeClaim`.
@@ -112,10 +112,10 @@ You can abort or remove a completed Longhorn system restore using Longhorn UI. O
 ## Configurable Settings
 
 Some settings are excluded as configurable before the Longhorn system restore.
-- [Concurrent volume backup restore per node limit](../../../references/settings/#concurrent-volume-backup-restore-per-node-limit)
-- [Concurrent replica rebuild per node limit](../../../references/settings/#concurrent-replica-rebuild-per-node-limit)
-- [Backup Target](../../../references/settings/#backup-target)
-- [Backup Target Credential Secret](../../../references/settings/#backup-target-credential-secret)
+- [Concurrent volume backup restore per node limit](../../references/settings#concurrent-volume-backup-restore-per-node-limit)
+- [Concurrent replica rebuild per node limit](../../references/settings#concurrent-replica-rebuild-per-node-limit)
+- [Backup Target](../../references/settings#backup-target)
+- [Backup Target Credential Secret](../../references/settings#backup-target-credential-secret)
 
 ## Troubleshoot
 

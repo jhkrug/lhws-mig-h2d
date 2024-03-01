@@ -7,7 +7,7 @@ If you want to restrict Longhorn components to only run on a particular set of n
 For example, you want to install Longhorn in a cluster that has both Linux nodes and Windows nodes but Longhorn cannot run on Windows nodes.
 In this case, you can set the node selector to restrict Longhorn to only run on Linux nodes.
 
-For more information about how node selector work, refer to the [official Kubernetes documentation.](https://kubernetes.io/docs/concepts/scheduling-eviction/assign-pod-node/#nodeselector)
+For more information about how node selector work, refer to the [official Kubernetes documentation.](https://kubernetes.io/docs/concepts/scheduling-eviction/assign-pod-node#nodeselector)
 
 # Setting up Node Selector for Longhorn
 Longhorn system contains user deployed components (e.g, Manager, Driver Deployer, UI) and system managed components (e.g, Instance Manager, Engine Image, CSI Driver, etc.)
@@ -34,7 +34,7 @@ You need to set node selector for both types of components. See more details bel
 
 2. Set node selector for system managed components
 
-   Follow the [Customize default settings](../customizing-default-settings/) to set node selector by changing the value for the `system-managed-components-node-selector` default setting
+   Follow the [Customize default settings](./customizing-default-settings/) to set node selector by changing the value for the `system-managed-components-node-selector` default setting
    > Note: Because of the limitation of Rancher 2.5.x, if you are using Rancher UI to install Longhorn, you need to click `Edit As Yaml` and add setting `systemManagedComponentsNodeSelector` to `defaultSettings`.
    >
    > For example:

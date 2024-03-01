@@ -38,8 +38,8 @@ You can setup the existing Longhorn when its not deployed with the supported Hel
 
 1. Since Longhorn components can only run on Linux nodes,
    you need to set node selector `kubernetes.io/os:linux` for Longhorn to select the Linux nodes.
-   Please follow the instruction at [Node Selector](../node-selector) to set node selector for Longhorn.
+   Please follow the instruction at [Node Selector](./node-selector) to set node selector for Longhorn.
 
 1. Since all Linux worker nodes in Rancher Windows cluster are tainted with the taint `cattle.io/os=linux:NoSchedule`,
    You need to set the toleration `cattle.io/os=linux:NoSchedule` for Longhorn to be able to run on those nodes.
-   Please follow the instruction at [Taint Toleration](../taint-toleration) to set toleration for Longhorn.
+   Please follow the instruction at [Taint Toleration](./taint-toleration) to set toleration for Longhorn.

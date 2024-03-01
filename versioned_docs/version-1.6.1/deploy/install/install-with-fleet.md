@@ -6,7 +6,7 @@ sidebar_position: 10
 ## Prerequisites
 - Your workstation: Install [Helm](https://helm.sh/docs/) v3.0 or later.
 - Kubernetes cluster:
-  - Ensure that each node fulfills the [installation requirements](../#installation-requirements).
+  - Ensure that each node fulfills the [installation requirements](..#installation-requirements).
   - Install [Fleet](https://fleet.rancher.io/) using Helm.
 
     ```bash
@@ -147,6 +147,6 @@ sidebar_position: 10
     engine-image-ei-df38d2e5-cv6nc                      1/1     Running   0          114s
     ```
 
-1. [Create an NGINX Ingress controller with basic authentication](../../accessing-the-ui/longhorn-ingress) to access the Longhorn UI. Authentication to the Longhorn UI is not enabled by default.
+1. [Create an NGINX Ingress controller with basic authentication](../accessing-the-ui/longhorn-ingress) to access the Longhorn UI. Authentication to the Longhorn UI is not enabled by default.
 
-1. [Access the Longhorn UI](../../accessing-the-ui).
+1. [Access the Longhorn UI](../accessing-the-ui).

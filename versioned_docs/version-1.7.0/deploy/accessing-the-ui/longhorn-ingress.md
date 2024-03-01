@@ -162,9 +162,9 @@ $ curl -v http://97.107.142.125/ -u foo:bar
 
 You will need to create an ELB (Elastic Load Balancer) to expose the nginx Ingress controller to the Internet. Additional costs may apply.
 
-1. Create pre-requisite resources according to the [nginx ingress controller documentation.](https://kubernetes.github.io/ingress-nginx/deploy/#prerequisite-generic-deployment-command)
+1. Create pre-requisite resources according to the [nginx ingress controller documentation.](https://kubernetes.github.io/ingress-nginx/deploy#prerequisite-generic-deployment-command)
 
-2. Create an ELB by following [these steps.](https://kubernetes.github.io/ingress-nginx/deploy/#aws)
+2. Create an ELB by following [these steps.](https://kubernetes.github.io/ingress-nginx/deploy#aws)
 
 ## References
 https://kubernetes.github.io/ingress-nginx/

@@ -42,8 +42,8 @@ If this requirement cannot be satisfied, e.g. due to there are less than 3 nodes
 
 #### Solution
 If this is the case, you can:
-1. either set [`Node Level Soft Anti-affinity` to `true`](https://longhorn.io/docs/1.0.2/references/settings/#replica-node-level-soft-anti-affinity).
-2. or, create [a new StorageClass](https://longhorn.io/docs/1.0.2/references/examples/#storageclass) with replica count set to `1` or `2`.
+1. either set [`Node Level Soft Anti-affinity` to `true`](https://longhorn.io/docs/1.0.2/references/settings#replica-node-level-soft-anti-affinity).
+2. or, create [a new StorageClass](https://longhorn.io/docs/1.0.2/references/examples#storageclass) with replica count set to `1` or `2`.
 3. or, adding more nodes to your cluster.
 
 ### Other reasons

@@ -6,11 +6,11 @@ sidebar_position: 8
 
 ## Prerequisites
 
-Each node in the Kubernetes cluster where Longhorn will be installed must fulfill [these requirements.](../#installation-requirements)
+Each node in the Kubernetes cluster where Longhorn will be installed must fulfill [these requirements.](..#installation-requirements)
 
 [This script](https://github.com/longhorn/longhorn/blob/v{{< current-version >}}/scripts/environment_check.sh) can be used to check the Longhorn environment for potential issues.
 
-The initial settings for Longhorn can be customized by [editing the deployment configuration file.](../../../advanced-resources/deploy/customizing-default-settings/#using-the-longhorn-deployment-yaml-file)
+The initial settings for Longhorn can be customized by [editing the deployment configuration file.](../../advanced-resources/deploy/customizing-default-settings#using-the-longhorn-deployment-yaml-file)
 
 ## Installing Longhorn
 
@@ -52,8 +52,8 @@ The initial settings for Longhorn can be customized by [editing the deployment c
     instance-manager-b34d5db1fe1e2d52bcfb308be3166cfc   1/1     Running   0          114s
     engine-image-ei-df38d2e5-cv6nc                      1/1     Running   0          114s
     ```
-3. To enable access to the Longhorn UI, you will need to set up an Ingress controller. Authentication to the Longhorn UI is not enabled by default. For information on creating an NGINX Ingress controller with basic authentication, refer to [this section.](../../accessing-the-ui/longhorn-ingress)
-4. Access the Longhorn UI using [these steps.](../../accessing-the-ui)
+3. To enable access to the Longhorn UI, you will need to set up an Ingress controller. Authentication to the Longhorn UI is not enabled by default. For information on creating an NGINX Ingress controller with basic authentication, refer to [this section.](../accessing-the-ui/longhorn-ingress)
+4. Access the Longhorn UI using [these steps.](../accessing-the-ui)
 
 > **Note**:
 > For Kubernetes < v1.25, if your cluster still enables Pod Security Policy admission controller, need to apply the [podsecuritypolicy.yaml](https://raw.githubusercontent.com/longhorn/longhorn/master/deploy/podsecuritypolicy.yaml) manifest in addition to applying the `longhorn.yaml` manifests.

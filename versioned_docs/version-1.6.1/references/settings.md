@@ -86,7 +86,7 @@ sidebar_position: 1
 
 ### Customizing Default Settings
 
-To configure Longhorn before installing it, see [this section](../../advanced-resources/deploy/customizing-default-settings) for details.
+To configure Longhorn before installing it, see [this section](../advanced-resources/deploy/customizing-default-settings) for details.
 
 ### General
 
@@ -111,7 +111,7 @@ Define the policy to use when a node with the last healthy replica of a volume i
   WARNING: Can result in slow drains and extra data movement associated with replica rebuilding.
 
 Each option has benefits and drawbacks. See [Node Drain Policy
-Recommendations](../../maintenance/maintenance/#node-drain-policy-recommendations) for help deciding which is most
+Recommendations](../maintenance#node-drain-policy-recommendations) for help deciding which is most
 appropriate in your environment.
 
 #### Detach Manually Attached Volumes When Cordoned
@@ -146,7 +146,7 @@ If disabled, Longhorn will not delete the workload pod that is managed by a cont
 
 > **Note:** This setting doesn't apply to below cases.
 > - The workload pods don't have a controller; Longhorn never deletes them.
-> - The volumes used by workloads are RWX, because the Longhorn share manager, which provides the RWX NFS service, has its own resilience mechanism to ensure availability until the volume gets reattached without relying on the pod lifecycle to trigger volume reattachment. For details, see [here](../../nodes-and-volumes/volumes/rwx-volumes).
+> - The volumes used by workloads are RWX, because the Longhorn share manager, which provides the RWX NFS service, has its own resilience mechanism to ensure availability until the volume gets reattached without relying on the pod lifecycle to trigger volume reattachment. For details, see [here](../nodes-and-volumes/volumes/rwx-volumes).
 
 #### Automatic Salvage
 
@@ -180,7 +180,7 @@ If no other disks exist, create the default disk automatically, only on nodes wi
 
 If disabled, the default disk will be created on all new nodes when the node is detected for the first time.
 
-This option is useful if you want to scale the cluster but don't want to use storage on the new nodes, or if you want to [customize disks for Longhorn nodes](../../nodes-and-volumes/nodes/default-disk-and-node-config).
+This option is useful if you want to scale the cluster but don't want to use storage on the new nodes, or if you want to [customize disks for Longhorn nodes](../nodes-and-volumes/nodes/default-disk-and-node-config).
 
 #### Custom Resource API Version
 
@@ -245,7 +245,7 @@ If this flag is **false**, the Longhorn uninstallation job will fail.
 
 > Default: `false`
 
-Allows engine controller and engine replica to disable revision counter file update for every data write. This improves the data path performance. See [Revision Counter](../../advanced-resources/deploy/revision_counter) for details.
+Allows engine controller and engine replica to disable revision counter file update for every data write. This improves the data path performance. See [Revision Counter](../advanced-resources/deploy/revision_counter) for details.
 
 #### Enable Upgrade Checker
 
@@ -449,7 +449,7 @@ Setting that allows you to enable the V1 Data Engine.
 
 > Default: `false`
 
-Setting that allows you to enable the V2 Data Engine, which is based on the Storage Performance Development Kit (SPDK). The V2 Data Engine is a preview feature and should not be used in production environments. For more information, see [V2 Data Engine (Preview Feature)](../../v2-data-engine).
+Setting that allows you to enable the V2 Data Engine, which is based on the Storage Performance Development Kit (SPDK). The V2 Data Engine is a preview feature and should not be used in production environments. For more information, see [V2 Data Engine (Preview Feature)](../v2-data-engine).
 
 > **Warning**
 >
@@ -477,7 +477,7 @@ Number of millicpus on each node to be reserved for each instance manager pod wh
 
 > Default: `enabled`
 
-Setting that allows rebuilding of offline replicas for volumes using the V2 Data Engine. For more information, see [Automatic Offline Replica Rebuilding](../../v2-data-engine/features/automatic-offline-replica-rebuilding).
+Setting that allows rebuilding of offline replicas for volumes using the V2 Data Engine. For more information, see [Automatic Offline Replica Rebuilding](../v2-data-engine/features/automatic-offline-replica-rebuilding).
 
 Here are the available options:
 - `enabled`
@@ -538,21 +538,21 @@ If this setting is enabled, Longhorn automatically attaches the volume and takes
 > `nfs://longhorn-test-nfs-svc.default:/opt/backupstore`  
 > `nfs://longhorn-test-nfs-svc.default:/opt/backupstore?nfsOptions=soft,timeo=330,retrans=3`  
 
-Endpoint used to access a backupstore.   Longhorn supports AWS S3, Azure, GCP, CIFS and NFS.  See [Setting a Backup Target](../../snapshots-and-backups/backup-and-restore/set-backup-target) for details.
+Endpoint used to access a backupstore.   Longhorn supports AWS S3, Azure, GCP, CIFS and NFS.  See [Setting a Backup Target](../snapshots-and-backups/backup-and-restore/set-backup-target) for details.
 
 #### Backup Target Credential Secret
 
 > Example: `s3-secret`
 
-The Kubernetes secret associated with the backup target. See [Setting a Backup Target](../../snapshots-and-backups/backup-and-restore/set-backup-target) for details.
+The Kubernetes secret associated with the backup target. See [Setting a Backup Target](../snapshots-and-backups/backup-and-restore/set-backup-target) for details.
 
 #### Backupstore Poll Interval
 
 > Default: `300`
 
-The interval in seconds to poll the backup store for updating volumes' **Last Backup** field. Set to 0 to disable the polling. See [Setting up Disaster Recovery Volumes](../../snapshots-and-backups/setup-disaster-recovery-volumes) for details.
+The interval in seconds to poll the backup store for updating volumes' **Last Backup** field. Set to 0 to disable the polling. See [Setting up Disaster Recovery Volumes](../snapshots-and-backups/setup-disaster-recovery-volumes) for details.
 
-For more information on how the backupstore poll interval affects the recovery time objective and recovery point objective, refer to the [concepts section.](../../concepts/#34-backupstore-update-intervals-rto-and-rpo)
+For more information on how the backupstore poll interval affects the recovery time objective and recovery point objective, refer to the [concepts section.](../concepts#34-backupstore-update-intervals-rto-and-rpo)
 
 #### Failed Backup Time To Live
 
@@ -626,7 +626,7 @@ This setting controls how many worker threads per restore concurrently.
 
 This setting allows user to create and attach a volume that doesn't have all the replicas scheduled at the time of creation.
 
-> **Note:** It's recommended to disable this setting when using Longhorn in the production environment. See [Best Practices](../../best-practices/) for details.
+> **Note:** It's recommended to disable this setting when using Longhorn in the production environment. See [Best Practices](../best-practices/) for details.
 
 #### Disable Scheduling On Cordoned Node
 
@@ -707,7 +707,7 @@ The available volume spec options are:
 
 With the default setting of 25, the Longhorn Manager will allow scheduling new replicas only after the amount of disk space has been subtracted from the available disk space (**Storage Available**) and the available disk space is still over 25% of actual disk capacity (**Storage Maximum**). Otherwise the disk becomes unschedulable until more space is freed up.
 
-See [Multiple Disks Support](../../nodes-and-volumes/nodes/multidisk/#configuration) for details.
+See [Multiple Disks Support](../nodes-and-volumes/nodes/multidisk#configuration) for details.
 
 #### Storage Over Provisioning Percentage
 
@@ -741,7 +741,7 @@ This setting allows replica of the volume without disk selector to be scheduled 
 
 ### Danger Zone
 
-Starting with Longhorn v1.6.0, Longhorn allows you to modify the [Danger Zone settings](https://longhorn.io/docs/1.6.0/references/settings/#danger-zone) without the need to wait for all volumes to become detached. Your preferred settings are immediately applied in the following scenarios:
+Starting with Longhorn v1.6.0, Longhorn allows you to modify the [Danger Zone settings](https://longhorn.io/docs/1.6.0/references/settings#danger-zone) without the need to wait for all volumes to become detached. Your preferred settings are immediately applied in the following scenarios:
 
 - No attached volumes: When no volumes are attached before the settings are configured, the setting changes are immediately applied.
 - Engine image upgrade (live upgrade): During a live upgrade, which involves creating a new Instance Manager pod, the setting changes are immediately applied to the new pod.
@@ -750,12 +750,12 @@ Settings are synchronized hourly. When all volumes are detached, the settings in
 
   | Setting | Additional Information| Affected Components |
   | --- | --- | --- |
-  | [Kubernetes Taint Toleration](#kubernetes-taint-toleration)| [Taints and Tolerations](../../advanced-resources/deploy/taint-toleration/) | System-managed components |
-  | [Priority Class](#priority-class) | [Priority Class](../../advanced-resources/deploy/priority-class/) | System-managed components |
-  | [System Managed Components Node Selector](#system-managed-components-node-selector) | [Node Selector](../../advanced-resources/deploy/node-selector/) | System-managed components |
-  | [Storage Network](#storage-network) | [Storage Network](../../advanced-resources/deploy/storage-network/) | Instance Manager and Backing Image components |
+  | [Kubernetes Taint Toleration](#kubernetes-taint-toleration)| [Taints and Tolerations](../advanced-resources/deploy/taint-toleration/) | System-managed components |
+  | [Priority Class](#priority-class) | [Priority Class](../advanced-resources/deploy/priority-class/) | System-managed components |
+  | [System Managed Components Node Selector](#system-managed-components-node-selector) | [Node Selector](../advanced-resources/deploy/node-selector/) | System-managed components |
+  | [Storage Network](#storage-network) | [Storage Network](../advanced-resources/deploy/storage-network/) | Instance Manager and Backing Image components |
   | [V1 Data Engine](#v1-data-engine) || Instance Manager component |
-  | [V2 Data Engine](#v2-data-engine) | [V2 Data Engine (Preview Feature)](../../v2-data-engine/) | Instance Manager component |
+  | [V2 Data Engine](#v2-data-engine) | [V2 Data Engine (Preview Feature)](../v2-data-engine/) | Instance Manager component |
   | [Guaranteed Instance Manager CPU](#guaranteed-instance-manager-cpu) || Instance Manager component |
   | [Guaranteed Instance Manager CPU for V2 Data Engine](#guaranteed-instance-manager-cpu-for-v2-data-engine) || Instance Manager component |
 
@@ -792,7 +792,7 @@ Multiple tolerations can be set here, and these tolerations are separated by sem
 * `key1=value1:NoSchedule; key2:NoExecute`
 * `:` this toleration tolerates everything because an empty key with operator `Exists` matches all keys, values and effects
 * `key1=value1:`  this toleration has empty effect. It matches all effects with key `key1`
-  See [Taint Toleration](../../advanced-resources/deploy/taint-toleration) for details.
+  See [Taint Toleration](../advanced-resources/deploy/taint-toleration) for details.
 
 #### Priority Class
 
@@ -809,7 +809,7 @@ Depending on how you deployed Longhorn, you need to set Priority Class for user 
 
 > **Warning:** This setting should only be changed after detaching all Longhorn volumes, as the Longhorn system components will be restarted to apply the setting. The Priority Class update will take a while, and users cannot operate Longhorn system during the update. Hence, it's recommended to set the Priority Class during Longhorn deployment.
 
-See [Priority Class](../../advanced-resources/deploy/priority-class) for details.
+See [Priority Class](../advanced-resources/deploy/priority-class) for details.
 
 #### System Managed Components Node Selector
 
@@ -818,7 +818,7 @@ See [Priority Class](../../advanced-resources/deploy/priority-class) for details
 If you want to restrict Longhorn components to only run on a particular set of nodes, you can set node selector for all Longhorn components.
 
 Longhorn system contains user deployed components (e.g, Longhorn manager, Longhorn driver, Longhorn UI) and system managed components (e.g, instance manager, engine image, CSI driver, etc.)
-You need to set node selector for both of them. This setting only sets node selector for system managed components. Follow the instruction at [Node Selector](../../advanced-resources/deploy/node-selector) to change node selector.
+You need to set node selector for both of them. This setting only sets node selector for system managed components. Follow the instruction at [Node Selector](../advanced-resources/deploy/node-selector) to change node selector.
 
 > **Warning:**  Since all Longhorn components will be restarted, the Longhorn system is unavailable temporarily.
 To apply a setting immediately, ensure that all Longhorn volumes are detached. When volumes are in use, Longhorn components are not restarted, and you need to reconfigure the settings after detaching the remaining volumes; otherwise, you can wait for the setting change to be reconciled in an hour.
@@ -830,7 +830,7 @@ Don't operate the Longhorn system while node selector settings are updated and L
 
 Setting the Kubernetes Cluster Autoscaler Enabled to `true` allows Longhorn to unblock the Kubernetes Cluster Autoscaler scaling.
 
-See [Kubernetes Cluster Autoscaler Support](../../high-availability/k8s-cluster-autoscaler) for details.
+See [Kubernetes Cluster Autoscaler Support](../high-availability/k8s-cluster-autoscaler) for details.
 
 > **Warning:** Replica rebuilding could be expensive because nodes with reusable replicas could get removed by the Kubernetes Cluster Autoscaler.
 
@@ -842,7 +842,7 @@ The storage network uses Multus NetworkAttachmentDefinition to segregate the in-
 
 > **Warning:** This setting should change after all Longhorn volumes are detached because some pods that run Longhorn system components are recreated to apply the setting. When all volumes are detached, Longhorn attempts to restart all Instance Manager and Backing Image Manager pods immediately. When volumes are in use, Longhorn components are not restarted, and you need to reconfigure the settings after detaching the remaining volumes; otherwise, you can wait for the setting change to be reconciled in an hour.
 
-See [Storage Network](../../advanced-resources/deploy/storage-network) for details.
+See [Storage Network](../advanced-resources/deploy/storage-network) for details.
 
 #### Remove Snapshots During Filesystem Trim
 
@@ -854,7 +854,7 @@ Since Longhorn filesystem trim feature can be applied to the volume head and the
 
 Notice that trying to trim a removed files from a valid snapshot will do nothing but the filesystem will discard this kind of in-memory trimmable file info. Later on if you mark the snapshot as removed and want to retry the trim, you may need to unmount and remount the filesystem so that the filesystem can recollect the trimmable file info.
 
-See [Trim Filesystem](../../nodes-and-volumes/volumes/trim-filesystem) for details.
+See [Trim Filesystem](../nodes-and-volumes/volumes/trim-filesystem) for details.
 
 #### Guaranteed Instance Manager CPU
 

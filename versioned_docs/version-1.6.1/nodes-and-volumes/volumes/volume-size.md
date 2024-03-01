@@ -10,7 +10,7 @@ In this section, you'll have a better understanding of concepts related to volum
 - It is what you set during the volume creation, and we will call it nominal size in this doc to avoid ambiguity.
 - Since the volume itself is just a CRD object in Kubernetes and the data is stored in each replica, this is actually the nominal size of each replica.
 - The reason we call this field as "nominal size" is that Longhorn replicas are using [sparse files](https://wiki.archlinux.org/index.php/Sparse_file) to store data and this value is the apparent size of the sparse files (the maximum size to which they may expand). The actual size used by each replica is not equal to this nominal size.
-- Based on this nominal size, the replicas will be scheduled to those nodes that have enough allocatable space during the volume creation. (See [this doc](../../nodes/node-space-usage) for more info about node allocation size.)
+- Based on this nominal size, the replicas will be scheduled to those nodes that have enough allocatable space during the volume creation. (See [this doc](../nodes/node-space-usage) for more info about node allocation size.)
 - The value of nominal size determines the max available space when the volume is in use. In other words, the current active data size hold by a volume cannot be greater than its nominal size.
 - The maximum volume size is based on the disk's file system (for example, 16383 GiB for `ext4`).
 
@@ -41,7 +41,7 @@ In the example, we will explain how volume `size` and `actual size` get changed 
 
 3. Delete the 4 Gi data. Then, `df` command shows that the used space of the filesystem is nearly 0, but the `actual size` is unchanged.
 
-    > Users can see by default the volume `actual size` is not shrunk after deleting the 4 Gi data. Longhorn is a block-level storage system. Therefore, the deletion in the filesystem only marks the blocks that belong to the deleted file as unused. Currently, Longhorn will not apply TRIM/UNMAP operations automatically/periodically. if you want to do filesystem trim, please check [this doc](../trim-filesystem) for details.
+    > Users can see by default the volume `actual size` is not shrunk after deleting the 4 Gi data. Longhorn is a block-level storage system. Therefore, the deletion in the filesystem only marks the blocks that belong to the deleted file as unused. Currently, Longhorn will not apply TRIM/UNMAP operations automatically/periodically. if you want to do filesystem trim, please check [this doc](./trim-filesystem) for details.
 
 ![images](/img/screenshots/volumes-and-nodes/volume-size-illustration-fig2.png)
 
@@ -98,7 +98,7 @@ Here we summarize the important things related to disk space usage we have in th
 
 - Unused blocks are not released
 
-  Longhorn will not issue TRIM/UNMAP operations automatically. Hence deleting files from filesystems will not lead to volume actual size decreasing/shrinking. You may need to check [the doc](../trim-filesystem) and handle it by yourself if needed.
+  Longhorn will not issue TRIM/UNMAP operations automatically. Hence deleting files from filesystems will not lead to volume actual size decreasing/shrinking. You may need to check [the doc](./trim-filesystem) and handle it by yourself if needed.
 
 
 - Allocated blocks but unused are not reused
@@ -119,7 +119,7 @@ Here we summarize the important things related to disk space usage we have in th
         - where `N` is the total number of snapshots the volume contains (including the volume head), and the extra `1` is for the temporary space that may be required by snapshot deletion.
         - The average actual size of the snapshots varies and depends on the use cases.
           If snapshots are created periodically for a volume (e.g. by relying on snapshot recurring jobs), the average value would be the average modified data size for the volume in the snapshot creation interval.
-          If there are heavy writing tasks for volumes, the head/snapshot average actual size would be volume the nominal size. In this case, it's better to set [`Storage Over Provisioning Percentage`](../../../references/settings/#storage-over-provisioning-percentage) to be smaller than 100% to avoid disk space exhaustion.
+          If there are heavy writing tasks for volumes, the head/snapshot average actual size would be volume the nominal size. In this case, it's better to set [`Storage Over Provisioning Percentage`](../../references/settings#storage-over-provisioning-percentage) to be smaller than 100% to avoid disk space exhaustion.
         - Some extended cases:
             - There is one snapshot recurring job with retention number is `N`. Then the formula can be extended to:
 
@@ -134,7 +134,7 @@ Here we summarize the important things related to disk space usage we have in th
                     - The 2nd `1` means the extra snapshot created by the recurring job. Since the recurring job always creates a new snapshot then deletes the oldest snapshot when the current snapshots created by itself exceeds the retention number. Before the deletion starts, there is one extra snapshot that can take extra disk space.
                     - The 3rd `1` is the system snapshot. If the rebuilding is triggered or the expansion is issued, Longhorn will create a system snapshot before starting the operations. And this system snapshot may not be able to get cleaned up immediately.
                     - The 4th `1` is for the temporary space that may be required by snapshot deletion/purge.
-            - Users don't want snapshot at all. Neither (manually created) snapshot nor recurring job will be launched. Assume [setting _Automatically Cleanup System Generated Snapshot_](../../../references/settings/#automatically-clean-up-system-generated-snapshot) is enabled, then formula would become:
+            - Users don't want snapshot at all. Neither (manually created) snapshot nor recurring job will be launched. Assume [setting _Automatically Cleanup System Generated Snapshot_](../../references/settings#automatically-clean-up-system-generated-snapshot) is enabled, then formula would become:
 
                 ```
                 (1 + 1 + 1) x head/snapshot average actual size

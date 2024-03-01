@@ -20,7 +20,7 @@ There are a few ways to do this as below.
 
 ## Tell Longhorn to create a default disk on a specific set of nodes
 * Label `node-1`, `node-2`, and `node-3` with label `node.longhorn.io/create-default-disk=true` (e.g., `kubectl label nodes node-1 node.longhorn.io/create-default-disk=true`)
-* Install Longhorn with the setting [Create Default Disk on Labeled Nodes](https://longhorn.io/docs/1.2.2/references/settings/#create-default-disk-on-labeled-nodes) set to `true`.
+* Install Longhorn with the setting [Create Default Disk on Labeled Nodes](https://longhorn.io/docs/1.2.2/references/settings#create-default-disk-on-labeled-nodes) set to `true`.
 
 **Result**: workloads that use Longhorn volumes can run on any nodes. Longhorn only uses storage on `node-1`, `node-2`, and `node-3` for replica scheduling.
 

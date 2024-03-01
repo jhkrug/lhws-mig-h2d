@@ -29,7 +29,7 @@ If you want to set up recurring snapshots and backups even when the volumes are 
 You can set recurring jobs on a Longhorn Volume, Kubernetes Persistent Volume Claim (PVC), or Kubernetes StorageClass.
 > Note: When the PVC has recurring job labels, they will override all recurring job labels of the associated Volume.
 
-For more information on how snapshots and backups work, refer to the [concepts](../../concepts) section.
+For more information on how snapshots and backups work, refer to the [concepts](../concepts) section.
 
 > Note: To avoid the problem that recurring jobs may overwrite the old backups/snapshots with identical backups and empty snapshots when the volume doesn't have new data for a long time, Longhorn does the following:
 > 1. Recurring backup job only takes a new backup when the volume has new data since the last backup.

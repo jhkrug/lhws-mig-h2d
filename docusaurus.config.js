@@ -10,16 +10,17 @@ import {themes as prismThemes} from 'prism-react-renderer';
 const config = {
   markdown: {
     preprocessor: ({filePath, fileContent}) => {
-      // The regex extracts a version number that is being used as a part of
-      // directory name. The assumption is that versions numbers are
-      // '/n.n.n/' format. There must be at least one number.
-      // Valid examples: /1/ /1.1/, /123.456.789/, /1.2.3.4.5.6/
-      // Invalid: /1.2-dev/, /1.2rc3/
+      // The regex extracts a version number n in the 'vno' named capture group
+	  // that is being used as a part of the directory name.
+	  // The assumption is that version numbers are
+      // '/version-n.n.n/' format. There must be at least one number.
+      // Valid examples: /version-1/ /version-1.1/, /version-123.456.789/, /version-1.2.3.4.5.6/
+      // Invalid: /version-1.2-dev/, /version-1.2rc3/
       // Trying to keep it simple for our use case in Longhorn.
       const regex = /\/version-(?<vno>(?:[0-9]{1,}\.{0,1})*)\//gm;
       var fp = filePath;
       var fc = fileContent;
-      var cCV = '1.7.0';
+      var cCV = '1.7.0'; // currentCurrentVersion, a default.
       for (const match of fp.matchAll(regex)) {
         fc = fc.replace(/{{< current-version >}}/g, `${match.groups.vno}`);
       }

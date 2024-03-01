@@ -6,8 +6,8 @@ sidebar_position: 11
 ## Prerequisites
 - Your workstation: Install [Helm](https://helm.sh/docs/) v3.0 or later.
 - Kubernetes cluster:
-  - Ensure that each node fulfills the [installation requirements](../#installation-requirements).
-  - [Install the Flux CLI](https://fluxcd.io/flux/installation/#install-the-flux-cli).
+  - Ensure that each node fulfills the [installation requirements](..#installation-requirements).
+  - [Install the Flux CLI](https://fluxcd.io/flux/installation#install-the-flux-cli).
   - [Bootstrap Flux with GitHub](https://fluxcd.io/flux/installation/bootstrap/github/) using the Flux CLI.
     Run the following commands to export your GitHub personal access token (PAT) as an environment variable, deploy the Flux controllers on your cluster, and configure the controllers to sync the cluster state from the specified GitHub repository.
 
@@ -83,9 +83,9 @@ sidebar_position: 11
     engine-image-ei-df38d2e5-cv6nc                      1/1     Running   0          114s
     ```
 
-1. [Create an NGINX Ingress controller with basic authentication](../../accessing-the-ui/longhorn-ingress) to access the Longhorn UI. Authentication to the Longhorn UI is not enabled by default.
+1. [Create an NGINX Ingress controller with basic authentication](../accessing-the-ui/longhorn-ingress) to access the Longhorn UI. Authentication to the Longhorn UI is not enabled by default.
 
-1. [Access the Longhorn UI](../../accessing-the-ui).
+1. [Access the Longhorn UI](../accessing-the-ui).
 
 ## Continuous Operations via GitOps
 

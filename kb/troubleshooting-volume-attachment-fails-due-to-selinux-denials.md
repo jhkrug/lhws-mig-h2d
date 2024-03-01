@@ -19,7 +19,7 @@ updated beyond version `2.189.0`. This can happen unexpectedly and can catch adm
 
 ## Symptoms
 Symptoms are the same as those discussed in a [previous KB article that focused on
-OKD](../troubleshooting-volumes-stuck-in-attach-detach-loop-when-using-longhorn-on-okd/).
+OKD](../kb/troubleshooting-volumes-stuck-in-attach-detach-loop-when-using-longhorn-on-okd/).
 
 All volumes are stuck in an attach/detach loop. `dmesg` and `ausearch` on storage nodes reveal SELinux issues:
 ```
@@ -44,7 +44,7 @@ type=AVC msg=audit(1686166397.967:2849): avc:  denied  { dac_override } for  pid
 ## Reason
 
 The root cause is the same as was discussed in a [previous KB article that focused on
-OKD](../troubleshooting-volumes-stuck-in-attach-detach-loop-when-using-longhorn-on-okd/). A permissions issue in
+OKD](../kb/troubleshooting-volumes-stuck-in-attach-detach-loop-when-using-longhorn-on-okd/). A permissions issue in
 `open-iscsi` causes `iscsiadm` to create directories under `/var/lib/iscsi` without the execute bit. When it later
 needs to access these directories, it cannot do so without the `dac_override` capability. Updated versions of
 `container-selinux` do not grant `iscsiadm` this capability when run from a container.

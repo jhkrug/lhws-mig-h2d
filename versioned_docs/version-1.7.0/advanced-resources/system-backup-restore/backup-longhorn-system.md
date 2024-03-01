@@ -38,7 +38,7 @@ It includes below resources associating with the Longhorn system:
 - StorageClasses
 - Volumes
 
-> **Warning:** Longhorn does not backup `BackingImages`. We will improve this part in the future. See [Restore Longhorn System - Prerequisite](../restore-longhorn-system/#prerequisite) for restoring volumes created with the backing image.
+> **Warning:** Longhorn does not backup `BackingImages`. We will improve this part in the future. See [Restore Longhorn System - Prerequisite](./restore-longhorn-system#prerequisite) for restoring volumes created with the backing image.
 
 > **Note:** Longhorn does not backup `Nodes`. The Longhorn manager on the target cluster is responsible for creating its own Longhorn `Node` custom resources.
 
@@ -51,7 +51,7 @@ You can create a Longhorn system backup using the Longhorn UI. Or with the `kube
 
 ### Prerequisite
 
-- [Set the backup target](../../../snapshots-and-backups/backup-and-restore/set-backup-target). Longhorn saves the system backups to the remote backup store. You will see an error during creation when the backup target is unset.
+- [Set the backup target](../../snapshots-and-backups/backup-and-restore/set-backup-target). Longhorn saves the system backups to the remote backup store. You will see an error during creation when the backup target is unset.
 
    > **Note:** Unsetting the backup target clears the existing `SystemBackup` custom resource. Longhorn syncs to the remote backup store after setting the backup target. Another cluster can also sync to the same list of system backups when the backup target is the same.
 

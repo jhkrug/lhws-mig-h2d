@@ -25,7 +25,7 @@ sidebar_position: 1
 
 ---
 
-> You can generate a support bundle file for offline troubleshooting. See [Support Bundle](../support-bundle) for detail.
+> You can generate a support bundle file for offline troubleshooting. See [Support Bundle](./support-bundle) for detail.
 
 ## Common issues
 ### Volume can be attached/detached from UI, but Kubernetes Pod/StatefulSet etc cannot use it
@@ -33,7 +33,7 @@ sidebar_position: 1
 #### Using with Flexvolume Plugin
 Check if the volume plugin directory has been set correctly. This is automatically detected unless user explicitly set it.
 
-By default, Kubernetes uses `/usr/libexec/kubernetes/kubelet-plugins/volume/exec/`, as stated in the [official document](https://github.com/kubernetes/community/blob/master/contributors/devel/sig-storage/flexvolume.md/#prerequisites).
+By default, Kubernetes uses `/usr/libexec/kubernetes/kubelet-plugins/volume/exec/`, as stated in the [official document](https://github.com/kubernetes/community/blob/master/contributors/devel/sig-storage/flexvolume.md#prerequisites).
 
 Some vendors choose to change the directory for various reasons. For example, GKE uses `/home/kubernetes/flexvolume` instead.
 

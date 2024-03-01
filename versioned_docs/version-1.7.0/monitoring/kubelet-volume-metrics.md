@@ -16,7 +16,7 @@ Kubelet exposes [the following metrics](https://github.com/kubernetes/kubernetes
 
 Those metrics measure information related to a PVC's filesystem inside a Longhorn block device.
 
-They are different than [longhorn_volume_*](../metrics) metrics, which measure information specific to a Longhorn block device.
+They are different than [longhorn_volume_*](./metrics) metrics, which measure information specific to a Longhorn block device.
 
 You can set up a monitoring system that scrapes Kubelet metric endpoints to obtains a PVC's status and set up alerts for abnormal events, such as the PVC being about to run out of storage space.
 

@@ -27,7 +27,7 @@ This command gives users the ability to restore a backup to a `raw` image or a `
 
 8. Set the S3 Credential Secret by replacing `<S3_SECRET_NAME>`, e.g. `minio-secret`.  
 
-    - The credential secret can be referenced [here](https://longhorn.io/docs/{{< current-version >}}/snapshots-and-backups/backup-and-restore/set-backup-target/#set-up-aws-s3-backupstore) and must be created in the `longhorn-system' namespace.
+    - The credential secret can be referenced [here](https://longhorn.io/docs/{{< current-version >}}/snapshots-and-backups/backup-and-restore/set-backup-target#set-up-aws-s3-backupstore) and must be created in the `longhorn-system' namespace.
 
 9. Execute the yaml using e.g.:
 
