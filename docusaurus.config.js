@@ -22,14 +22,14 @@ const config = {
       var fc = fileContent;
       var cCV = '1.7.0'; // currentCurrentVersion, a default.
       for (const match of fp.matchAll(regex)) {
-        fc = fc.replace(/{{< current-version >}}/g, `${match.groups.vno}`);
+        fc = fc.replace(/\[\[< current-version >\]\]/g, `${match.groups.vno}`);
       }
       // The next line ensures that any use of {{< current-version >}}
       // outside a versioned directory will be replaced with the default
       // cCV (currentCurrentVersion). If the next line is commented out then
       // the build fails if it finds any such. Which might be what you
       // need.
-      fc = fc.replace(/{{< current-version >}}/g, cCV);
+      fc = fc.replace(/\[\[< current-version >\]\]/g, cCV);
       // The filepath is only used as an aid to see which file was being
       // processed.
       // fc = fc.replace(/lhv_fp_lhv/g, fp);
