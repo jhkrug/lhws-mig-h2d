@@ -1,6 +1,6 @@
 ---
-  title: Recover Volume after Unexpected Detachment
-  weight: 1
+title: Recover Volume after Unexpected Detachment
+sidebar_position: 1
 ---
 
 When an unexpected detachment happens, which can happen during a [Kubernetes upgrade](https://github.com/longhorn/longhorn/issues/703), a [Docker reboot](https://github.com/longhorn/longhorn/issues/686), or a network disconnection,

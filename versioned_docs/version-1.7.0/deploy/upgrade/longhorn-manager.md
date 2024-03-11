@@ -37,9 +37,9 @@ To upgrade the Longhorn App, make sure which Rancher UI the existing Longhorn Ap
 
 Different Rancher UIs screenshots.
 - The Cluster Manager (old UI)
-![images](/img/screenshots/install/cluster-manager.png)
+![Image](/img/screenshots/install/cluster-manager.png)
 - The Cluster Explorer (new UI)
-![images](/img/screenshots/install/cluster-explorer.png)
+![Image](/img/screenshots/install/cluster-explorer.png)
 
 #### Upgrade with Kubectl
 

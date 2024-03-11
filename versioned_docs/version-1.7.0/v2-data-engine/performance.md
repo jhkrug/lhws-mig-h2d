@@ -21,11 +21,11 @@ aliases:
 - Storage: 1 SSD (Micron_5300_MTFD)
 - Network throughput between nodes (tested by iperf over 60 seconds): 15.0 Gbits/sec
 
-![images](/img/diagrams/v2-data-engine/equinix-iops.svg)
+![Image](/img/diagrams/v2-data-engine/equinix-iops.svg)
 
-![images](/img/diagrams/v2-data-engine/equinix-bw.svg)
+![Image](/img/diagrams/v2-data-engine/equinix-bw.svg)
 
-![images](/img/diagrams/v2-data-engine/equinix-latency.svg)
+![Image](/img/diagrams/v2-data-engine/equinix-latency.svg)
 
 # AWS EC2 (c5d.xlarge)
 
@@ -38,8 +38,8 @@ aliases:
 - Storage: 1 SSD (Amazon EC2 NVMe Instance Storage/Local NVMe Storage)
 - Network throughput between nodes (tested by iperf over 60 seconds): 7.9 Gbits/sec
 
-![images](/img/diagrams/v2-data-engine/aws-c5d-xlarge-iops.svg)
+![Image](/img/diagrams/v2-data-engine/aws-c5d-xlarge-iops.svg)
 
-![images](/img/diagrams/v2-data-engine/aws-c5d-xlarge-bw.svg)
+![Image](/img/diagrams/v2-data-engine/aws-c5d-xlarge-bw.svg)
 
-![images](/img/diagrams/v2-data-engine/aws-c5d-xlarge-latency.svg)
+![Image](/img/diagrams/v2-data-engine/aws-c5d-xlarge-latency.svg)

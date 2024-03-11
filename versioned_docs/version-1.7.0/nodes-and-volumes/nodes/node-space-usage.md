@@ -10,7 +10,7 @@ In this section, you'll have a better understanding of the space usage info pres
 
 In `Dashboard` page, Longhorn will show you the cluster space usage info:
 
-![images](/img/screenshots/volumes-and-nodes/space-usage-info-dashboard-page.png)
+![Image](/img/screenshots/volumes-and-nodes/space-usage-info-dashboard-page.png)
 
 `Schedulable`: The actual space that can be used for Longhorn volume scheduling.
 
@@ -24,7 +24,7 @@ In `Dashboard` page, Longhorn will show you the cluster space usage info:
 
 In `Node` page, Longhorn will show the space allocation, schedule, and usage info for each node:
 
-![images](/img/screenshots/volumes-and-nodes/space-usage-info-node-page.png)
+![Image](/img/screenshots/volumes-and-nodes/space-usage-info-node-page.png)
 
 `Size` column: The **max actual available space** that can be used by Longhorn volumes. It equals the total disk space of the node minus reserved space. 
 

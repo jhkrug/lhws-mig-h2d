@@ -1,6 +1,6 @@
 ---
-  title: Longhorn CSI on RKE and CoreOS
-  weight: 2
+title: Longhorn CSI on RKE and CoreOS
+sidebar_position: 2
 ---
 
 For minimalist Linux Operating systems, you'll need a little extra configuration to use Longhorn with RKE (Rancher Kubernetes Engine).  This document outlines the requirements for using RKE and CoreOS.

@@ -21,19 +21,19 @@ Each node in the Kubernetes cluster where Longhorn is installed must fulfill [th
 
 1. Optional: If Rancher version is 2.5.9 or before, we recommend creating a new project for Longhorn, for example, `Storage`.
 2. Navigate to the cluster where you will install Longhorn.
-    ![images](/img/screenshots/install/rancher-2.6/select-project.png)
+    ![Image](/img/screenshots/install/rancher-2.6/select-project.png)
 3. Navigate to the `Apps & Marketplace` screen.
-    ![images](/img/screenshots/install/rancher-2.6/apps-launch.png)
+    ![Image](/img/screenshots/install/rancher-2.6/apps-launch.png)
 4. Find the Longhorn item in the charts and click it.
-    ![images](/img/screenshots/install/rancher-2.6/longhorn.png)
+    ![Image](/img/screenshots/install/rancher-2.6/longhorn.png)
 5. Click **Install**.
-    ![images](/img/screenshots/install/rancher-2.6/longhorn-chart.png)
+    ![Image](/img/screenshots/install/rancher-2.6/longhorn-chart.png)
 6. Optional: Select the project where you want to install Longhorn.
 7. Optional: Customize the default settings.
-    ![images](/img/screenshots/install/rancher-2.6/launch-longhorn.png)
+    ![Image](/img/screenshots/install/rancher-2.6/launch-longhorn.png)
 8. Click Next. Longhorn will be installed in the longhorn-system namespace.
-    ![images](/img/screenshots/install/rancher-2.6/installed-longhorn.png)
+    ![Image](/img/screenshots/install/rancher-2.6/installed-longhorn.png)
 9. Click the Longhorn App Icon to navigate to the Longhorn dashboard.
-    ![images](/img/screenshots/install/rancher-2.6/dashboard.png)
+    ![Image](/img/screenshots/install/rancher-2.6/dashboard.png)
 
 After Longhorn has been successfully installed, you can access the Longhorn UI by navigating to the `Longhorn` option from Rancher left panel.

@@ -1,6 +1,6 @@
 ---
-  title: Kubernetes Cluster Autoscaler Support (Experimental)
-  weight: 1
+title: Kubernetes Cluster Autoscaler Support (Experimental)
+sidebar_position: 1
 ---
 
 By default, Longhorn blocks Kubernetes Cluster Autoscaler from scaling down nodes because:

@@ -4,82 +4,67 @@
 // There are various equivalent ways to declare your Docusaurus config.
 // See: https://docusaurus.io/docs/api/docusaurus-config
 
-import {themes as prismThemes} from 'prism-react-renderer';
+import { themes as prismThemes } from "prism-react-renderer";
+
+import dsVariableProcessor from "./js-lib/docusaurus-variables.js";
+import lhSubstituteCurrentVersion from "./js-lib/longhorn-versions.js";
 
 /** @type {import('@docusaurus/types').Config} */
 const config = {
   markdown: {
-    preprocessor: ({filePath, fileContent}) => {
-      // The regex extracts a version number n in the 'vno' named capture group
-	  // that is being used as a part of the directory name.
-	  // The assumption is that version numbers are
-      // '/version-n.n.n/' format. There must be at least one number.
-      // Valid examples: /version-1/ /version-1.1/, /version-123.456.789/, /version-1.2.3.4.5.6/
-      // Invalid: /version-1.2-dev/, /version-1.2rc3/
-      // Trying to keep it simple for our use case in Longhorn.
-      const regex = /\/version-(?<vno>(?:[0-9]{1,}\.{0,1})*)\//gm;
-      var fp = filePath;
-      var fc = fileContent;
-      var cCV = '1.7.0'; // currentCurrentVersion, a default.
-      for (const match of fp.matchAll(regex)) {
-        fc = fc.replace(/\[\[< current-version >\]\]/g, `${match.groups.vno}`);
-      }
-      // The next line ensures that any use of {{< current-version >}}
-      // outside a versioned directory will be replaced with the default
-      // cCV (currentCurrentVersion). If the next line is commented out then
-      // the build fails if it finds any such. Which might be what you
-      // need.
-      fc = fc.replace(/\[\[< current-version >\]\]/g, cCV);
-      // The filepath is only used as an aid to see which file was being
-      // processed.
-      // fc = fc.replace(/lhv_fp_lhv/g, fp);
-      return fc;
+    preprocessor: ({ filePath, fileContent }) => {
+      // Process Longhorn versions
+      fileContent = lhSubstituteCurrentVersion(fileContent, filePath);
+
+      // Process variables
+      fileContent = dsVariableProcessor(fileContent);
+      return fileContent;
     },
   },
-  title: 'Longhorn',
-  tagline: 'Longhorn is a lightweight, reliable, and powerful distributed block storage system for Kubernetes.',
-  favicon: 'img/favicon.ico',
+  title: "Longhorn",
+  tagline:
+    "Longhorn is a lightweight, reliable, and powerful distributed block storage system for Kubernetes.",
+  favicon: "img/favicon.ico",
 
   // Set the production url of your site here
-  url: 'https://longhorn.io',
+  url: "https://longhorn.io",
   // Set the /<baseUrl>/ pathname under which your site is served
   // For GitHub pages deployment, it is often '/<projectName>/'
-  baseUrl: '/',
+  baseUrl: "/",
 
   // GitHub pages deployment config.
   // If you aren't using GitHub pages, you don't need these.
-  organizationName: 'longhorn', // Usually your GitHub org/user name.
-  projectName: 'website', // Usually your repo name.
+  organizationName: "longhorn", // Usually your GitHub org/user name.
+  projectName: "website", // Usually your repo name.
 
-  onBrokenLinks: 'warn',
-  onBrokenMarkdownLinks: 'warn',
+  onBrokenLinks: "warn",
+  onBrokenMarkdownLinks: "warn",
 
   // Even if you don't use internationalization, you can use this field to set
   // useful metadata like html lang. For example, if your site is Chinese, you
   // may want to replace "en" with "zh-Hans".
   i18n: {
-    defaultLocale: 'en',
-    locales: ['en'],
+    defaultLocale: "en",
+    locales: ["en"],
   },
 
   presets: [
     [
-      'classic',
+      "classic",
       /** @type {import('@docusaurus/preset-classic').Options} */
       ({
         docs: {
-          sidebarPath: './sidebars.js',
-          editUrl:
-            'https://github.com/longhorn/website/content/docs',
+          sidebarPath: "./sidebars.js",
+          editUrl: "https://github.com/longhorn/website/content/docs",
         },
         blog: {
           showReadingTime: true,
-          blogSidebarTitle: 'All posts',
-          blogSidebarCount: 'ALL',
-          editUrl: 'https://github.com/longhorn/website/content/blog/',
+          blogSidebarTitle: "All posts",
+          blogSidebarCount: "ALL",
+          editUrl: "https://github.com/longhorn/website/content/blog/",
         },
         theme: {
-          customCss: './src/css/custom.css',
+          customCss: "./src/css/custom.css",
         },
       }),
     ],
@@ -87,15 +72,15 @@ const config = {
 
   plugins: [
     [
-      '@docusaurus/plugin-content-blog',
+      "@docusaurus/plugin-content-blog",
       {
-        id: 'kb',
-        routeBasePath: 'kb',
-        path: './kb',
+        id: "kb",
+        routeBasePath: "kb",
+        path: "./kb",
         showReadingTime: true,
-        blogSidebarTitle: 'All articles',
-        blogSidebarCount: 'ALL',
-        editUrl: 'https://github.com/longhorn/website/content/kb/',
+        blogSidebarTitle: "All articles",
+        blogSidebarCount: "ALL",
+        editUrl: "https://github.com/longhorn/website/content/kb/",
       },
     ],
   ],
@@ -110,10 +95,10 @@ const config = {
         },
       },
       navbar: {
-        title: 'Longhorn',
+        title: "Longhorn",
         logo: {
-          alt: 'Longhorn Logo',
-          src: 'img/logo.svg',
+          alt: "Longhorn Logo",
+          src: "img/logo.svg",
         },
         items: [
           {
@@ -155,7 +140,7 @@ const config = {
         ],
       },
       footer: {
-        style: 'dark',
+        style: "dark",
         copyright: `Copyright © ${new Date().getFullYear()} Longhorn, a CNCF project.`,
       },
       prism: {

@@ -1,6 +1,6 @@
 ---
-  title: Data Locality
-  weight: 1
+title: Data Locality
+sidebar_position: 1
 ---
 
 The data locality setting is intended to be enabled in situations where at least one replica of a Longhorn volume should be scheduled on the same node as the pod that uses the volume, whenever it is possible. We refer to the property of having a local replica as having `data locality`.

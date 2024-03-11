@@ -1,6 +1,6 @@
 ---
-  title: Create a Snapshot
-  weight: 1
+title: Create a Snapshot
+sidebar_position: 1
 ---
 
 A [snapshot](../concepts#24-snapshots) is the state of a Kubernetes Volume at any given point in time.

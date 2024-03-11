@@ -2,11 +2,14 @@
 title: What is Longhorn?
 sidebar_position: 1
 ---
+
 Longhorn is a lightweight, reliable and easy-to-use distributed block storage system for Kubernetes.
 
 Longhorn is free, open source software. Originally developed by Rancher Labs, it is now being developed as a incubating project of the Cloud Native Computing Foundation.
 
 With Longhorn, you can:
+
+- [[< bob >]]
 
 - Use Longhorn volumes as persistent storage for the distributed stateful applications in your Kubernetes cluster
 - Partition your block storage into Longhorn volumes so that you can use Kubernetes volumes with or without a cloud provider

@@ -49,11 +49,11 @@ For detecting data corruption, checksums of snapshot disk files need to be calcu
 - Result
     - Disk: 200 GiB NVMe SSD as the instance store
       - 100 GiB snapshot with full random data
-        ![images](/img/diagrams/snapshot/snapshot_hash_ssd_perf.png)
+        ![Image](/img/diagrams/snapshot/snapshot_hash_ssd_perf.png)
 
     - Disk: 200 GiB throughput optimized HDD (st1)
       - 30 GiB snapshot with full random data
-        ![images](/img/diagrams/snapshot/snapshot_hash_hdd_perf.png)
+        ![Image](/img/diagrams/snapshot/snapshot_hash_hdd_perf.png)
 
 ## Recommendation
 
